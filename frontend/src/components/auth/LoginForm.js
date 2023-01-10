@@ -54,6 +54,8 @@ const LogInForm = ({ navigate }) => {
                 <input placeholder='Password' id="password" type='password' value={password} onChange={handlePasswordChange} required />
 
             </div>
+
+            <br></br>
           
           <div className="remember-me--forget-password">
             <label>
