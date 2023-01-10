@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const PostSchema = new mongoose.Schema({
   author: String,
   message: String,
-  date: Date,
+  date: String,
   likes: Number,
   comments: [String],
   profile_picture_url: String,
