@@ -39,6 +39,11 @@ const LogInForm = ({ navigate }) => {
     <div>
       <form onSubmit={handleSubmit}>
 
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
         <div className="box-form">
           <div className="left">
             <div className="overlay">
