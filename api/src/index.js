@@ -5,6 +5,11 @@ import App from './components/app/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 
+const PORT = process.env.PORT || 3000
+server.listening(PORT, () => {
+  console.log('Server listening on http://localhost:' + PORT)
+})
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
