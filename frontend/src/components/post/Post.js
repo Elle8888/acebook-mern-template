@@ -7,9 +7,10 @@ const Post = ({post}) => {
         <h4>{post.author}</h4>
         <p>{post.date}</p>
         <p>{post.message}</p>
-        <p>{post.likes}</p>
+        <p>Likes: {post.likes}</p>
         <button>Comments</button>
         <div class="comment">
+          
           <p>{post.comments}</p>
         </div>
         
