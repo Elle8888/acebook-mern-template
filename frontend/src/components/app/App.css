@@ -211,3 +211,18 @@ body {
 .nav li.active {
   background-color: rgb(240, 13, 195);
 }
+/* navigation bar */
+
+  .post{
+    width: 75%;
+    border: 15px solid #7088f2;
+    padding: 50px;
+    margin: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .comment{
+    color: red;
+  }
