@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Post from '../post/Post'
 
-const Feed = ({ navigate }) => {
+const Feed = ({ navigate, currentUser }) => {
   const [posts, setPosts] = useState([]);
   const [token, setToken] = useState(window.localStorage.getItem("token"));
 
@@ -36,7 +36,7 @@ const Feed = ({ navigate }) => {
         <>
           <h2>Posts</h2>
             <button onClick={logout}>
-              Logout
+              Logout {currentUser}
             </button>
             <button id="create-post" onClick={createPost}>
               Create post
