@@ -4,9 +4,9 @@ export default function Navbar() {
     <Link to="/" className="site-title">Fishbook
       </Link>
         <ul>
-          <CustomLink to="/posts">Post</CustomLink>
-          <CustomLink to="/login">Login</CustomLink>
-          <CustomLink to="/signup">Signup</CustomLink>
+          <CustomLink id="posts-link-nav" to="/posts">Post</CustomLink>
+          <CustomLink id="login-link-nav" to="/login">Login</CustomLink>
+          <CustomLink id="signup-link-nav" to="/signup">Signup</CustomLink>
         </ul>
     </nav>
 }

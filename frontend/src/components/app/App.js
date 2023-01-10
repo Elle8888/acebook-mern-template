@@ -8,7 +8,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Navbar from '../../NavBar';
+import Navbar from '../NavBar';
 
 const App = () => {
     return (
