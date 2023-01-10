@@ -10,7 +10,6 @@ const Post = ({post}) => {
         <p>Likes: {post.likes}</p>
         <button>Comments</button>
         <div class="comment">
-          
           <p>{post.comments}</p>
         </div>
         
