@@ -162,3 +162,17 @@ body {
   label input[type="checkbox"] {
     display: none;
   }
+
+  .post{
+    width: 75%;
+    border: 15px solid #7088f2;
+    padding: 50px;
+    margin: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .comment{
+    color: red;
+  }

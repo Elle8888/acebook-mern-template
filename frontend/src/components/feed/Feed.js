@@ -35,8 +35,8 @@ const Feed = ({ navigate }) => {
               Logout
             </button>
           <div id='feed' role="feed">
-              {posts.map(
-                (post) => ( <Post post={ post } key={ post._id } /> )
+              {posts.slice(0).reverse().map(
+                (post) => ( <Post post={ post } key={ post._id }/> )
               )}
           </div>
         </>
