@@ -59,10 +59,7 @@ const Feed = ({ navigate }) => {
     }
   }
 
-  const handleNewPostMessageChange = (event) => {
-    setNewPostMessage(event.target.value)
-  }
-    
+
   function toggleText() {
     console.log("toggle")
     var text = document.getElementById("new_post");
