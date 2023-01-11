@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react'
+import Comment from '../comment/Comment'
 
 const Post = ({post}) => {
 
@@ -9,7 +10,7 @@ const Post = ({post}) => {
     setToggleComments((toggleComments) => !toggleComments)
   }
 
-  const commentsDisplay = post.comments?.map((comment) => <p>{comment}</p>)
+  const commentsDisplay = post.comments?.map((commentText) => <Comment commentText={commentText} />)
 
   return(
     <article data-cy="post" key={ post._id }>
@@ -20,7 +21,7 @@ const Post = ({post}) => {
         <p>Likes: {post.likes}</p>
         <button onClick={commentsToggler} data-cy="toggle-btn">Comments</button>
         <div class="comment">
-          <p>{toggleComments && commentsDisplay}</p>
+          <div>{toggleComments && commentsDisplay}</div>
         </div>
         
         {/* <img> src={post.profile_picture_url}</img>   Currently breaks the rest if there are no images
