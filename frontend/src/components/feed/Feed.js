@@ -12,7 +12,7 @@ const Feed = ({ navigate }) => {
     console.log("Create post")
     event.preventDefault();
     let current_date = new Date().toLocaleString();
-  
+
     let response = await fetch( '/posts', {
       method: 'post',
       headers: {
@@ -59,58 +59,53 @@ const Feed = ({ navigate }) => {
     }
   }
 
-
-  function toggleText() {
-    console.log("toggle")
-    var text = document.getElementById("new_post");
-    if (text.style.display === "none") {
-      text.style.display = "block";
-    } else {
-      text.style.display = "none";
-    }
-  }
-
   const handleNewPostMessageChange = (event) => {
     setNewPostMessage(event.target.value)
   }
+    
+
   const logout = () => {
     window.localStorage.removeItem("token")
     window.localStorage.removeItem("currentUser")
     navigate('/login')
   }
-
   
     if(token) {
       return(
         <>
           
-          <h2>Posts</h2>
-          <button onClick={logout}>
+          <div className="on-mind">
+            <input placeholder="What's on your mind?" id="message" type='text' value={ newPostMessage } onChange={handleNewPostMessageChange}/>
+          <button id="submit-update" onClick={createPost}>
+            Post
+            </button>
+          </div>
+          <br></br>
+          {/* <button onClick={logout}>
             Logout {current_user}
-          </button>
-          <button id="create-post" onClick={toggleText}>
+          </button> */}
+          {/* <button id="create-post" onClick={toggleText}>
             Create post
-          </button>
-
+          </button> */}
           <div id='feed' role="feed">
-            <div id='new_post'>
+          {/* <div id='new_post'>
               <h3>New post</h3>
               <input placeholder='Post content...' id="message" type='text' value={ newPostMessage } onChange={handleNewPostMessageChange}/>
               <button id="submit-post" onClick={createPost}>
                 Post
               </button>
-            </div>
+            </div> */}
 
             <div id='posts'>
-              {posts.slice(0).reverse().map(
-                (post) => ( <Post post={ post } key={ post._id }/> )
+              {posts.map(
+                (post) => ( <Post post={ post } key={ post._id } /> )
               )}
-            </div>
+              </div>
           </div>
-          </>
+        </>
       )
     } else {
-      navigate('/signup')
+      navigate('/signin')
     }
 }
 
