@@ -33,7 +33,6 @@ const Feed = ({ navigate }) => {
     }
   }
 
-
   useEffect(() => {
     if(token) {
       fetch("/posts", {
@@ -49,6 +48,20 @@ const Feed = ({ navigate }) => {
         })
     }
   }, [])
+
+  function toggleText() {
+    console.log("toggle")
+    var text = document.getElementById("new_post");
+    if (text.style.display === "none") {
+      text.style.display = "block";
+    } else {
+      text.style.display = "none";
+    }
+  }
+
+  const handleNewPostMessageChange = (event) => {
+    setNewPostMessage(event.target.value)
+  }
     
   function toggleText() {
     console.log("toggle")
@@ -73,6 +86,7 @@ const Feed = ({ navigate }) => {
     if(token) {
       return(
         <>
+          
           <h2>Posts</h2>
           <button onClick={logout}>
             Logout {current_user}

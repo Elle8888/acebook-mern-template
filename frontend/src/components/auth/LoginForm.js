@@ -6,8 +6,8 @@ const LogInForm = ({ navigate }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    let response = await fetch( '/tokens', {
+    console.log("click")
+    let response = await fetch('/tokens', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
@@ -15,7 +15,7 @@ const LogInForm = ({ navigate }) => {
       body: JSON.stringify({ email: email, password: password })
     })
 
-    if(response.status !== 201) {
+    if (response.status !== 201) {
       console.log("yay")
       navigate('/login')
     } else {
@@ -36,15 +36,47 @@ const LogInForm = ({ navigate }) => {
   }
 
 
-    return (
-      <div>
+  return (
+    <div>
       <form onSubmit={handleSubmit}>
-        <input placeholder='Email' id="email" type='text' value={ email } onChange={handleEmailChange} />
-        <input placeholder='Password' id="password" type='password' value={ password } onChange={handlePasswordChange} />
-        <input role='submit-button' id='submit' type="submit" value="Submit" />
+
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
+        <div className="box-form">
+          <div className="left">
+            <div className="overlay">
+              <h1>Fish Book</h1>
+            </div>
+          </div>
+          <div className="right">
+            <h5>Login!</h5>
+            <p>Don't have an account? <a href="/signup">Create Your Account</a> it takes less than a minute!</p>
+            <div className="inputs">
+              <input placeholder='Email' id="email" type='text' value={email} onChange={handleEmailChange} required />
+
+                <input placeholder='Password' id="password" type='password' value={password} onChange={handlePasswordChange} required />
+
+            </div>
+
+            <br></br>
+          
+          <div className="remember-me--forget-password">
+            <label>
+              <input type="checkbox" name="item" value="checkbox" />
+              <input type="checkbox" name="item" value="Yes"/>
+              <span className="text-checkbox">Remember me</span>
+              </label>
+              
+            <button role='submit-button' id='submit' type="submit" value="Submit">Login</button>    
+        </div>  
+          </div>
+        </div>
       </form>
-      </div>
-    );
+    </div>
+  );
 }
 
 export default LogInForm;
