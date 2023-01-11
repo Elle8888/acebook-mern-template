@@ -24,12 +24,7 @@ const Post = ({post}) => {
               <div className="comment">
                 <p>{post.comments}</p>
               </div>
-            </div>
-              
-              {/* <img> src={post.profile_picture_url}</img>   Currently breaks the rest if there are no images
-              <img> src={post.post_image_url}</img> 
-              */}
-            
+            </div>          
             </div>
           </article>
         </div>

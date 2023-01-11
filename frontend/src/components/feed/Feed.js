@@ -35,9 +35,6 @@ const Feed = ({ navigate }) => {
       return(
         <>
           <br></br>
-          <button onClick={logout}>
-            Logout {currentUser}
-          </button>
           <CreatePost current_user = {currentUser} token={token} /> 
           <div id='feed' role="feed">
             <div id='posts'>
