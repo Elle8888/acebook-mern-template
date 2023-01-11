@@ -2,11 +2,11 @@ import React from 'react';
 import './Post.css';
 
 const Post = ({post}) => {
+
   return (
     <div className="box-forming">
       <br></br>
       <div className="overlay">
-        
           <article data-cy="post" key={ post._id }>
             <div className="post-box">
             <h3>{post.author}</h3>

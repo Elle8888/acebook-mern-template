@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Post from '../post/Post'
+import NewPost from './createPost/createPost'
 
 const Feed = ({ navigate }) => {
   const [posts, setPosts] = useState([]);
   const [token, setToken] = useState(window.localStorage.getItem("token"));
-  const [newPostMessage, setNewPostMessage] = useState("");
-
   const current_user = window.localStorage.getItem("currentUser");
+
 
   const createPost = async (event) => {
     console.log("Create post")
@@ -63,7 +63,6 @@ const Feed = ({ navigate }) => {
     setNewPostMessage(event.target.value)
   }
     
-
   const logout = () => {
     window.localStorage.removeItem("token")
     window.localStorage.removeItem("currentUser")
