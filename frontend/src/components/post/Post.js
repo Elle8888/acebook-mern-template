@@ -9,7 +9,7 @@ const Post = ({post}) => {
     setToggleComments((toggleComments) => !toggleComments)
   }
 
-  const commentsDisplay = post.comments.map((comment) => <p>{comment}</p>)
+  const commentsDisplay = post.comments?.map((comment) => <p>{comment}</p>)
 
   return(
     <article data-cy="post" key={ post._id }>
@@ -18,7 +18,7 @@ const Post = ({post}) => {
         <p>{post.date}</p>
         <p>{post.message}</p>
         <p>Likes: {post.likes}</p>
-        <button onClick={commentsToggler}>Comments</button>
+        <button onClick={commentsToggler} data-cy="toggle-btn">Comments</button>
         <div class="comment">
           <p>{toggleComments && commentsDisplay}</p>
         </div>
