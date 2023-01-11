@@ -12,7 +12,7 @@ const Feed = ({ navigate }) => {
     console.log("Create post")
     event.preventDefault();
     let current_date = new Date().toLocaleString();
-
+  
     let response = await fetch( '/posts', {
       method: 'post',
       headers: {
@@ -63,12 +63,25 @@ const Feed = ({ navigate }) => {
     setNewPostMessage(event.target.value)
   }
     
+  function toggleText() {
+    console.log("toggle")
+    var text = document.getElementById("new_post");
+    if (text.style.display === "none") {
+      text.style.display = "block";
+    } else {
+      text.style.display = "none";
+    }
+  }
 
+  const handleNewPostMessageChange = (event) => {
+    setNewPostMessage(event.target.value)
+  }
   const logout = () => {
     window.localStorage.removeItem("token")
     window.localStorage.removeItem("currentUser")
     navigate('/login')
   }
+
   
     if(token) {
       return(
@@ -81,8 +94,9 @@ const Feed = ({ navigate }) => {
           <button id="create-post" onClick={toggleText}>
             Create post
           </button>
+
           <div id='feed' role="feed">
-          <div id='new_post'>
+            <div id='new_post'>
               <h3>New post</h3>
               <input placeholder='Post content...' id="message" type='text' value={ newPostMessage } onChange={handleNewPostMessageChange}/>
               <button id="submit-post" onClick={createPost}>
@@ -91,15 +105,15 @@ const Feed = ({ navigate }) => {
             </div>
 
             <div id='posts'>
-              {posts.map(
-                (post) => ( <Post post={ post } key={ post._id } /> )
+              {posts.slice(0).reverse().map(
+                (post) => ( <Post post={ post } key={ post._id }/> )
               )}
-              </div>
+            </div>
           </div>
-        </>
+          </>
       )
     } else {
-      navigate('/signin')
+      navigate('/signup')
     }
 }
 
