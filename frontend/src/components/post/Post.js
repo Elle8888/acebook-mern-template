@@ -7,7 +7,8 @@ const Post = ({post}) => {
         <h4>{post.author}</h4>
         <p>{post.date}</p>
         <p>{post.message}</p>
-        <p>Likes: {post.likes}</p>
+        <p>Like this post {post.likes}</p>
+        <p>x Likes {post.likes}</p>
         <button>Comments</button>
         <div class="comment">
           <p>{post.comments}</p>
