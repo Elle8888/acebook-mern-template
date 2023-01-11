@@ -14,7 +14,7 @@ const Post = ({post}) => {
 
   return(
     <article data-cy="post" key={ post._id }>
-      <div class="post">
+      <div className="post">
         <h4>{post.author}</h4>
         <p>{post.date}</p>
         <p>{post.message}</p>
