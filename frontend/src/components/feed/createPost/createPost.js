@@ -38,7 +38,7 @@ const CreatePost = (props) => {
     }
 
   const newPostField =
-   (<div className="newPost">
+   (<div className="on-mind">
       <h3>New post</h3>
       <input placeholder='Post content...' id="message" type='text' value={ newPostMessage } onChange={handleNewPostMessageChange}/>
       <button id="submit-post" onClick={sendPost}> Post</button> 
