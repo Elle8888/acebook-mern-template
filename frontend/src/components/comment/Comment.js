@@ -2,7 +2,11 @@ import React from "react";
 
 const Comment = ({commentText}) => {
 
-    return <p>{commentText}</p>
+    return (
+    <div>
+        <p>{commentText}</p>
+    </div>
+        )
 }
 
 export default Comment

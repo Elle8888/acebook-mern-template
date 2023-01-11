@@ -5,12 +5,30 @@ import Comment from '../comment/Comment'
 const Post = ({post}) => {
 
   const [toggleComments, setToggleComments] = useState(false)
+  const [toggleCommentBox, setToggleCommentBox] = useState(false)
+  const [comment, setComment] = useState("")
+  const [allComments, setAllComments] = useState(post.comments)
 
   const commentsToggler = () => {
     setToggleComments((toggleComments) => !toggleComments)
   }
 
-  const commentsDisplay = post.comments?.map((commentText) => <Comment commentText={commentText} />)
+  const commentBoxToggler = () => {
+    setToggleCommentBox((toggleCommentBox) => !toggleCommentBox)
+  }
+
+  const handleInput = (e) => {
+    setComment(e.target.value)
+  }
+
+  const updateCommentsArray = () => {
+    setAllComments((allComments) => [...allComments, comment])
+  }
+
+  // const commentsDisplay = post.comments?.map((commentText) => <Comment commentText={commentText} />)
+  const commentsDisplay = allComments?.map((commentText) => <Comment commentText={commentText} />)
+
+  // if add comment is visible..
 
   return(
     <article data-cy="post" key={ post._id }>
@@ -20,7 +38,12 @@ const Post = ({post}) => {
         <p>{post.message}</p>
         <p>Likes: {post.likes}</p>
         <button onClick={commentsToggler} data-cy="toggle-btn">Comments</button>
+        <button onClick={commentBoxToggler} data-cy="toggle-btn">Add comment</button>
         <div class="comment">
+          {toggleCommentBox && (<div className='add-comment'>
+            <textarea className='add-comment-textbox' onChange={handleInput} value={comment}></textarea>
+            <button onClick={updateCommentsArray}>post</button>
+          </div>)}
           <div>{toggleComments && commentsDisplay}</div>
         </div>
         
