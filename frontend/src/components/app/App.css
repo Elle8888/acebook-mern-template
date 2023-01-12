@@ -233,16 +233,16 @@ body {
     overflow: hidden;
     display: flex;
     flex: 1 1 100%;
-    align-items: stretch;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
     box-shadow: 0 0 20px 2px #090b6f85;
     padding-bottom: 10px;
     height: auto;
     margin-bottom: 30px;
   }
   .post-content {
-  
-    display: grid;
+    display: flex;
+    flex-direction: column;
     bottom: auto;
     left: 20px;
     width: 100%;
@@ -252,10 +252,9 @@ body {
     margin-left: 10px;
   }
   .post-box {
-    margin: 10px 50px 20px 40px;
-    width: 5%;
+    width: 90%;
+    height: 90%;
     bottom: auto;
-    left: 10px;
     background: #FFFFFF;
     border-radius: 30px;
     padding-bottom: 10px;
@@ -265,6 +264,30 @@ body {
   .post-date {
     font-size: x-small;
     text-overflow: clip;
+  }
+  .post-author {
+
+  }
+  .likes-container {
+    display: flex;
+    align-items: center;
+    gap: 20%
+  }
+  .below-post-text {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .add-comment {
+    margin-top: 1em;
+    gap: 1em;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+  .add-comment-textbox {
+    resize: none;
   }
   .on-mind {
     margin: 40px 50px 20px 40px;
