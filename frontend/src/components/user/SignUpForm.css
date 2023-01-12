@@ -1,0 +1,7 @@
+/* sign-up errors */
+
+.error-msg {
+  font-size: 18px;
+  width: 100%;
+  color: red;
+}
