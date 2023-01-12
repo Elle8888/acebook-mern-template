@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const LogInForm = ({ navigate, setCurrentUser }) => {
+const LogInForm = ({ navigate }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

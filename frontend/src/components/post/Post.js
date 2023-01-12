@@ -1,57 +1,34 @@
 import React from 'react';
-import { useState } from 'react'
-import Comment from '../comment/Comment'
+import './Post.css';
 
 const Post = ({post}) => {
 
-  const [toggleComments, setToggleComments] = useState(false)
-  const [toggleCommentBox, setToggleCommentBox] = useState(false)
-  const [comment, setComment] = useState("")
-  const [allComments, setAllComments] = useState(post.comments)
-
-  const commentsToggler = () => {
-    setToggleComments((toggleComments) => !toggleComments)
-  }
-
-  const commentBoxToggler = () => {
-    setToggleCommentBox((toggleCommentBox) => !toggleCommentBox)
-  }
-
-  const handleInput = (e) => {
-    setComment(e.target.value)
-  }
-
-  const updateCommentsArray = () => {
-    setAllComments((allComments) => [...allComments, comment])
-  }
-
-  // const commentsDisplay = post.comments?.map((commentText) => <Comment commentText={commentText} />)
-  const commentsDisplay = allComments?.map((commentText) => <Comment commentText={commentText} />)
-
-  // if add comment is visible..
-
-  return(
-    <article data-cy="post" key={ post._id }>
-      <div className="post">
-        <h4>{post.author}</h4>
-        <p>{post.date}</p>
-        <p>{post.message}</p>
-        <p>Likes: {post.likes}</p>
-        <button onClick={commentsToggler} data-cy="toggle-btn">Comments</button>
-        <button onClick={commentBoxToggler} data-cy="toggle-btn">Add comment</button>
-        <div class="comment">
-          {toggleCommentBox && (<div className='add-comment'>
-            <textarea className='add-comment-textbox' onChange={handleInput} value={comment}></textarea>
-            <button onClick={updateCommentsArray}>post</button>
-          </div>)}
-          <div>{toggleComments && commentsDisplay}</div>
+  return (
+    <div className="box-forming">
+      <br></br>
+      <div className="overlay">
+          <article data-cy="post" key={ post._id }>
+            <div className="post-box">
+            <h3>{post.author}</h3>
+            <div className="post-date">
+              <p>{post.date}</p>
+            </div>
+            <div className="post-content">
+              <p>{post.message}</p>
+              <button role="like button" type="submit">Like</button> 
+              <p>{post.likes}</p>
+              <div className="inputs">
+                <input placeholder="Comment" type="text" />
+              </div>
+              <button role='submit-button' id='submit' type='submit' value='Submit'>Comments</button>
+              <div className="comment">
+                <p>{post.comments}</p>
+              </div>
+            </div>          
+            </div>
+          </article>
         </div>
-        
-        {/* <img> src={post.profile_picture_url}</img>   Currently breaks the rest if there are no images
-        <img> src={post.post_image_url}</img> 
-        */}
-      </div>
-    </article>
+    </div>
   )
 }
 

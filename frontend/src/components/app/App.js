@@ -12,15 +12,13 @@ import Navbar from '../NavBar';
 
 const App = () => {
 
-  const [currentUser, setCurrentUser] = useState("")
-
     return (
       <>
         <Navbar />
         <div className="container">
         <Routes>
-          <Route path='/posts'  element={<Feed currentUser={currentUser}  navigate={ useNavigate() }/>}/>
-          <Route path='/login'  element={<LoginForm setCurrentUser={setCurrentUser} navigate={ useNavigate() }/>}/>
+          <Route path='/posts'  element={<Feed navigate={ useNavigate() }/>}/>
+          <Route path='/login'  element={<LoginForm navigate={ useNavigate() }/>}/>
           <Route path='/signup' element={<SignUpForm navigate={ useNavigate() }/>}/>
         </Routes>
         </div>

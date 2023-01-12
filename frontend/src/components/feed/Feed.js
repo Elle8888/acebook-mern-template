@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Post from '../post/Post'
-import NewPost from './createPost/createPost'
+import CreatePost from './createPost/createPost'
 
-const Feed = ({ navigate, currentUser }) => {
+const Feed = ({ navigate }) => {
   const [posts, setPosts] = useState([]);
   const [token, setToken] = useState(window.localStorage.getItem("token"));
-  const current_user = window.localStorage.getItem("currentUser");
+  const currentUser = window.localStorage.getItem("currentUser");
+
 
   useEffect(() => {
     if(token) {
@@ -23,6 +24,7 @@ const Feed = ({ navigate, currentUser }) => {
     }
   }, [])
 
+
   const logout = () => {
     window.localStorage.removeItem("token")
     window.localStorage.removeItem("currentUser")
@@ -32,20 +34,19 @@ const Feed = ({ navigate, currentUser }) => {
     if(token) {
       return(
         <>
-          <h2>Posts</h2>
-          <button onClick={logout}>
-            Logout {current_user}
-          </button>
+          <br></br>
+          <CreatePost current_user = {currentUser} token={token} /> 
           <div id='feed' role="feed">
-            <NewPost current_user = {current_user} token={token} /> 
+            <div id='posts'>
               {posts.slice(0).reverse().map(
-                (post) => ( <Post post={ post } key={ post._id }/> )
+                (post) => ( <Post post={ post } key={ post._id } /> )
               )}
+              </div>
           </div>
         </>
       )
     } else {
-      navigate('/signup')
+      navigate('/signin')
     }
 }
 
