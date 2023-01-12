@@ -8,6 +8,8 @@ body {
 }
 
 .box-form {
+  position: relative;
+  top: 30px;
   margin: auto;
   width: 80%;
   background: #ffffff;
