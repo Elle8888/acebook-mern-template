@@ -38,20 +38,19 @@ const CreatePost = (props) => {
   }
 
   const newPostField =
-    (<div className="on-mind">
+    (<div className="new-post">
       <h3>New post</h3>
       <input placeholder="What's on your mind?" id="message" type='text' value={newPostMessage} onChange={handleNewPostMessageChange} />
       <button id="submit-post" onClick={sendPost}> Post</button>
     </div>)
     
-  return (
-    <div className="on-mind">
-      <input placeholder="What's on your mind?" id="message" type='text' value={newPostMessage} onChange={handleNewPostMessageChange} />
-      <button id="submit-update" onClick={sendPost}>
-        Post
+  return  ( 
+    <div>
+     <button id="create-post" onClick={openNewPostField}>
+        Create post
       </button>
-    </div>
-  )
+      <div>{toggleNewPost && newPostField }</div>
+    </div>)
 }
 
 export default CreatePost
