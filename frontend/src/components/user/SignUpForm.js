@@ -9,6 +9,14 @@ const validateEmail = (email) => {
     )
 }
 
+const validatePassword = (password) => {
+  return String(password)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+    )
+}
+
 const SignUpForm = ({ navigate }) => {
   const [email, setEmail] = useState('')
   const [emailError, setEmailError] = useState('')
@@ -20,19 +28,23 @@ const SignUpForm = ({ navigate }) => {
     event.preventDefault()
 
     if (validateEmail(email)) {
-      fetch('/users', {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: email, password: password }),
-      }).then((response) => {
-        if (response.status === 201) {
-          navigate('/login')
-        } else {
-          navigate('/signup')
-        }
-      })
+      if (validatePassword(password)) {
+        fetch('/users', {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email: email, password: password }),
+        }).then((response) => {
+          if (response.status === 201) {
+            navigate('/login')
+          } else {
+            navigate('/signup')
+          }
+        })
+      } else {
+        setPasswordError('Enter a valid password')
+      }
     } else {
       setEmailError('Enter a valid email')
     }
@@ -89,7 +101,9 @@ const SignUpForm = ({ navigate }) => {
             <input type="checkbox" name="item" checked />
             <span className="text-checkbox">Remember me</span>
           </label>
-          <input id="submit" type="submit" value="Submit" />
+          <button role="submit-button" id="submit" type="submit" value="Submit">
+            Submit
+          </button>
         </div>
       </div>
     </form>
