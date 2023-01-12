@@ -31,27 +31,28 @@ const Feed = ({ navigate }) => {
     navigate('/login')
   }
   const displayProfile = ( <div className="wrapper">
-    <div className="box-forming3">
-  <br></br> 
-    <div className="box-forming5">
-  </div>
-  <br></br>
-  <br></br>
-  <div className="box-forming4">
-    <br></br>
-   <div className="overlays-username">
-        <h2>{currentUser}</h2>
-      </div>  
-<div className="inputs">
-  <input placeholder="Status update" type="text" />
+          <div className="box-forming3">
+            <br></br> 
+          <div className="box-forming5">
+          </div>
+          <br></br>
+          <br></br>
+      
+        <div className="box-forming4">
+          <br></br> 
+         <div className="overlays-username">
+              <h2>{currentUser}</h2>
+            </div>   
+      {/* <div className="inputs">
+        <input placeholder="Status update" type="text" />
+      </div> */}
+      {/* <button role="submit-button" id="submit" type="submit" value="submit">Post status</button>
+      <div className="user-update">
+      <p>{}</p>
+    </div> */}
 </div>
-<button role="submit-button" id="submit" type="submit" value="submit">Post status</button>
-<div className="user-update">
-<p>{}</p>
     </div>
-</div>
-    </div>
-    </div>
+     </div>
 )
     if(token) {
       return(
