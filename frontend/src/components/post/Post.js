@@ -9,17 +9,13 @@ const Post = ({post}) => {
   const [toggleCommentBox, setToggleCommentBox] = useState(false)
   const [comment, setComment] = useState("")
   const [allComments, setAllComments] = useState(post.comments)
-  console.log('ALL COMMENTS', allComments)
 
   const commentsToggler = () => {
     setToggleComments((toggleComments) => !toggleComments)
-    // console.log(commentsDisplay)
   }
 
   const commentBoxToggler = () => {
-    console.log('clikcec')
     setToggleCommentBox((toggleCommentBox) => !toggleCommentBox)
-
   }
 
   const handleInput = (e) => {
@@ -30,47 +26,39 @@ const Post = ({post}) => {
     setAllComments((allComments) => [...allComments, comment])
   }
 
-  // const commentsDisplay = post.comments?.map((commentText) => <Comment commentText={commentText} />)
-  // const commentsDisplay = allComments.map((commentText) => <Comment commentText={commentText} />)
-
   const commentsDis = allComments.map((comment) => <Comment commentText={comment} />)
 
-  // console.log('test map', commentsDis)
-
-  // console.log('COMMENT COMPONENT', <Comment commentText='test' />)
-  // console.log('THIS IS COMMENTS DISPLAY', console.log(commentsDisplay))
   return (
     <div className="box-forming">
-      <br></br>
-      <div className="overlay">
-          <article data-cy="post" key={ post._id }>
+      {/* <div className="overlay"> */}
+          {/* <article data-cy="post" key={ post._id }> */}
             <div className="post-box">
-            <h3>{post.author}</h3>
-            <div className="post-date">
-              <p>{post.date}</p>
-            </div>
+              <div className='post-headings'>
+            <h3 className='post-author'>{post.author}</h3>
+              <p className='post-date'>{post.date}</p>
+              </div>
             <div className="post-content">
               <p>{post.message}</p>
-              <button role="like button" type="submit">Like</button> 
-              <p>{post.likes}</p>
-              <div className="inputs">
-                <input placeholder="Comment" type="text" />
-              </div>
+              <div className='below-post-text'>
               <button onClick={commentsToggler} data-cy="toggle-btn" id='submit' role='submit-button'>Comments</button>
+              <div className='likes-container'>
+                <button role="like button" type="submit">Like</button> 
+                <p>{post.likes}</p>
+              </div>
+              </div>
               <div className="comment">
                 {toggleComments && commentsDis}
+
               </div>
               <button onClick={commentBoxToggler}>add comment</button>
-
               {toggleCommentBox && (<div className='add-comment'>
             <textarea className='add-comment-textbox' onChange={handleInput} value={comment}></textarea>
             <button onClick={updateCommentsArray}>post</button>
           </div>)}
-
             </div>          
             </div>
-          </article>
-        </div>
+          {/* </article> */}
+        {/* </div> */}
     </div>
   )
 }
