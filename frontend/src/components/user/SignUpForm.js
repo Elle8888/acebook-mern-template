@@ -1,21 +1,42 @@
 import React, { useState } from 'react'
+import validator from 'validator'
 import './SignUpForm.css'
 
-const validateEmail = (email) => {
-  return String(email)
-    .toLowerCase()
-    .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-    )
-}
+// const validatePassword = (password) => {
+//   if (password === 'password') {
+//     const uppercaseRegExp = /(?=.*?[A-Z])/
+//     const lowercaseRegExp = /(?=.*?[a-z])/
+//     const digitsRegExp = /(?=.*?[0-9])/
+//     const specialCharRegExp = /(?=.*?[#?!@$%^&*-])/
+//     const minLengthRegExp = /.{8,}/
 
-const validatePassword = (password) => {
-  return String(password)
-    .toLowerCase()
-    .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-    )
-}
+//     const passwordLength = password.length
+//     const uppercasePassword = uppercaseRegExp.test(password)
+//     const lowercasePassword = lowercaseRegExp.test(password)
+//     const digitsPassword = digitsRegExp.test(password)
+//     const specialCharPassword = specialCharRegExp.test(password)
+//     const minLengthPassword = minLengthRegExp.test(password)
+
+//     let errMsg = ''
+//     if (passwordLength === 0) {
+//       errMsg = 'Password is empty'
+//     } else if (!uppercasePassword) {
+//       errMsg = 'At least one Uppercase'
+//     } else if (!lowercasePassword) {
+//       errMsg = 'At least one Lowercase'
+//     } else if (!digitsPassword) {
+//       errMsg = 'At least one digit'
+//     } else if (!specialCharPassword) {
+//       errMsg = 'At least one Special Characters'
+//     } else if (!minLengthPassword) {
+//       errMsg = 'At least minumum 8 characters'
+//     } else {
+//       errMsg = ''
+//     }
+//     // setPasswordErr(errMsg);
+//   }
+//   return password
+// }
 
 const SignUpForm = ({ navigate }) => {
   const [email, setEmail] = useState('')
@@ -23,12 +44,38 @@ const SignUpForm = ({ navigate }) => {
 
   const [password, setPassword] = useState('')
   const [passwordError, setPasswordError] = useState('')
+  // const [errorMessage, setErrorMessage] = useState('')
+
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      )
+  }
+
+  const validatePassword = (password) => {
+    if (
+      validator.isStrongPassword(password, {
+        minLength: 8,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1,
+      })
+    ) {
+      setPasswordError('Is Strong Password')
+    } else {
+      setPasswordError('Is Not Strong Password')
+    }
+    return password === true
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
 
     if (validateEmail(email)) {
-      if (validatePassword(password)) {
+      if (validatePassword === true) {
         fetch('/users', {
           method: 'post',
           headers: {
@@ -43,7 +90,9 @@ const SignUpForm = ({ navigate }) => {
           }
         })
       } else {
-        setPasswordError('Enter a valid password')
+        setPasswordError(
+          'Password must be at least 8 characters, with at least one uppercase & lowercase letters, character and number',
+        )
       }
     } else {
       setEmailError('Enter a valid email')
