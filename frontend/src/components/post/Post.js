@@ -1,4 +1,5 @@
 import React from 'react';
+import LikeButton from './Like'
 
 const Post = ({post}) => {
   return(
@@ -7,8 +8,7 @@ const Post = ({post}) => {
         <h4>{post.author}</h4>
         <p>{post.date}</p>
         <p>{post.message}</p>
-        <p>Like this post {post.likes}</p>
-        <p>x Likes {post.likes}</p>
+        <LikeButton />
         <button>Comments</button>
         <div class="comment">
           <p>{post.comments}</p>
