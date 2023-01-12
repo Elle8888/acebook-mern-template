@@ -26,9 +26,7 @@ const PostsController = {
   },
 
   CreateComment: async (req, res) => {
-    console.log("ASYNC FUNCTION RAN")
     const post = await Post.findById(req.body.post_id)
-
     const filter = { _id: req.body.post_id };
     const new_comments = [...post.comments, req.body.text]
     const update = { comments: new_comments };
