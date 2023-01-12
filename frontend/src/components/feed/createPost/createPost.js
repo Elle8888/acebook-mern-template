@@ -45,12 +45,14 @@ const CreatePost = (props) => {
     </div>)
     
   return  ( 
-    <div>
+    <div className="create-post">
      <button id="create-post" onClick={openNewPostField}>
         Create post
       </button>
       <div>{toggleNewPost && newPostField }</div>
-    </div>)
+    </div>
+  )
+  
 }
 
 export default CreatePost
