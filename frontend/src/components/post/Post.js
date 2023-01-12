@@ -1,8 +1,44 @@
 import React from 'react';
+import {useState} from 'react'
+import Comment from '../comment/Comment'
 import './Post.css';
 
 const Post = ({post}) => {
 
+  const [toggleComments, setToggleComments] = useState(false)
+  const [toggleCommentBox, setToggleCommentBox] = useState(false)
+  const [comment, setComment] = useState("")
+  const [allComments, setAllComments] = useState(post.comments)
+  console.log('ALL COMMENTS', allComments)
+
+  const commentsToggler = () => {
+    setToggleComments((toggleComments) => !toggleComments)
+    // console.log(commentsDisplay)
+  }
+
+  const commentBoxToggler = () => {
+    console.log('clikcec')
+    setToggleCommentBox((toggleCommentBox) => !toggleCommentBox)
+
+  }
+
+  const handleInput = (e) => {
+    setComment(e.target.value)
+  }
+
+  const updateCommentsArray = () => {
+    setAllComments((allComments) => [...allComments, comment])
+  }
+
+  // const commentsDisplay = post.comments?.map((commentText) => <Comment commentText={commentText} />)
+  // const commentsDisplay = allComments.map((commentText) => <Comment commentText={commentText} />)
+
+  const commentsDis = allComments.map((comment) => <Comment commentText={comment} />)
+
+  // console.log('test map', commentsDis)
+
+  // console.log('COMMENT COMPONENT', <Comment commentText='test' />)
+  // console.log('THIS IS COMMENTS DISPLAY', console.log(commentsDisplay))
   return (
     <div className="box-forming">
       <br></br>
@@ -20,10 +56,17 @@ const Post = ({post}) => {
               <div className="inputs">
                 <input placeholder="Comment" type="text" />
               </div>
-              <button role='submit-button' id='submit' type='submit' value='Submit'>Comments</button>
+              <button onClick={commentsToggler} data-cy="toggle-btn" id='submit' role='submit-button'>Comments</button>
               <div className="comment">
-                <p>{post.comments}</p>
+                {toggleComments && commentsDis}
               </div>
+              <button onClick={commentBoxToggler}>add comment</button>
+
+              {toggleCommentBox && (<div className='add-comment'>
+            <textarea className='add-comment-textbox' onChange={handleInput} value={comment}></textarea>
+            <button onClick={updateCommentsArray}>post</button>
+          </div>)}
+
             </div>          
             </div>
           </article>
