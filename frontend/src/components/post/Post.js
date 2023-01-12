@@ -53,9 +53,6 @@ const Post = ({post}) => {
               <p>{post.message}</p>
               <button role="like button" type="submit">Like</button> 
               <p>{post.likes}</p>
-              <div className="inputs">
-                <input placeholder="Comment" type="text" />
-              </div>
               <button onClick={commentsToggler} data-cy="toggle-btn" id='submit' role='submit-button'>Comments</button>
               <div className="comment">
                 {toggleComments && commentsDis}

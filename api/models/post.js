@@ -6,6 +6,7 @@ const PostSchema = new mongoose.Schema({
   date: String,
   likes: Number,
   comments: [String],
+  // comments: [{ type: Schema.Types.ObjectId, ref: "Comment"}],
   profile_picture_url: String,
   post_img_url: String,
 
