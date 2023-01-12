@@ -2,6 +2,7 @@
 
 .error-msg {
   font-size: 18px;
+  font: bold;
   width: 100%;
   color: red;
 }

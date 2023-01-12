@@ -1,4 +1,4 @@
-import SignUpForm from './SignUpForm'
+import SignUpForm from './SignUpForm.js'
 const navigate = () => {}
 
 describe('Signing up', () => {
@@ -14,17 +14,18 @@ describe('Signing up', () => {
       expect(interception.response.body.message).to.eq('OK')
     })
   })
-  // it('requires a valid email address', () => {})
-
-  // it('requires a password with 8 characters', () => {})
-
-  // it('requires a password with one uppercase letter', () => {})
-
-  // it('requires a password with one lowercase letter', () => {})
-
-  // it('requires a password with one special character', () => {})
-
-  // it('requires a password with one number', () => {})
-
-  // it('redirects to login for successful signup', () => {})
 })
+
+// it('requires a valid email address', () => {})
+
+// it('requires a password with 8 characters', () => {})
+
+// it('requires a password with one uppercase letter', () => {})
+
+// it('requires a password with one lowercase letter', () => {})
+
+// it('requires a password with one special character', () => {})
+
+// it('requires a password with one number', () => {})
+
+// it('redirects to login for successful signup', () => {})
