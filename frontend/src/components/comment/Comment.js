@@ -1,6 +1,6 @@
 import React from "react";
 
-const Comment = ({commentText, postId}) => {
+const Comment = ({comment, postId}) => {
 
     // all comments in post.js is an array of objects
 
@@ -12,7 +12,9 @@ const Comment = ({commentText, postId}) => {
 
     return (
     <div>
-        <p>{commentText}</p>
+        <p>{comment.text}</p>
+        <p>{comment.author}</p>
+        <p>{comment.date}</p>
     </div>
         )
 }

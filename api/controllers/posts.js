@@ -26,11 +26,8 @@ const PostsController = {
   },
 
   CreateComment: async (req, res) => {
-    // console.log(req.body.post_id)
     const post = await Post.findById(req.body.post_id)
     const filter = { _id: req.body.post_id };
-    // req.body - comment object/schema
-    // console.log('BODY', req.body)
     comment = new Comment(req.body)
 
     comment.save()
@@ -40,6 +37,13 @@ const PostsController = {
     const update = { comments: new_comments };
     await Post.findOneAndUpdate(filter, update);
     res.json(post)
+  },
+  GetComments: async (req, res) => {
+
+    const filter = { post_id: req.param("id") };
+    const comments = await Comment.find(filter)
+    console.log("COMMENTS: ", comments)
+    res.json(comments)
   },
 
 };

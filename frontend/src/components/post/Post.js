@@ -1,5 +1,5 @@
 import React from 'react';
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Comment from '../comment/Comment'
 import './Post.css';
 
@@ -13,6 +13,32 @@ const Post = ({post}) => {
     comments: post.comments,
     postId: post._id
   })
+  const [comments, setComments] = useState([]);
+
+  const token = window.localStorage.getItem("token");
+  console.log(token)
+
+  
+    useEffect(() => {
+    if(token) {
+      fetch(`/posts/comments/${post._id}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+      })
+        .then(response => response.json())
+        .then(async data => {
+          window.localStorage.setItem("token", data.token)
+          // setToken(window.localStorage.getItem("token"))
+          setComments(data);
+          console.log("DATA: ", data)
+
+        })
+    }
+  }, [])
+
+  console.log("COMMENTS: ", comments)
+
 
   const commentsToggler = () => {
     setToggleComments((toggleComments) => !toggleComments)
@@ -32,7 +58,8 @@ const Post = ({post}) => {
 
   const commentsDis = allComments.map((comment) => <Comment commentText={comment} />)
 
-  const commentDataDisplay = commentData.comments.map((comment, i) => <Comment commentText={comment} postId={commentData.postId}/>)
+  // const commentDataDisplay = commentData.comments.map((comment, i) => <Comment commentText={comment} postId={commentData.postId}/>)
+  const commentDataDisplay = comments?.map((comment) => <Comment comment={comment} />)
 
   return (
     <div className="box-forming">
