@@ -9,6 +9,10 @@ const Post = ({post}) => {
   const [toggleCommentBox, setToggleCommentBox] = useState(false)
   const [comment, setComment] = useState("")
   const [allComments, setAllComments] = useState(post.comments)
+  const [commentData, setCommentData] = useState({
+    comments: post.comments,
+    postId: post._id
+  })
 
   const commentsToggler = () => {
     setToggleComments((toggleComments) => !toggleComments)
@@ -27,6 +31,8 @@ const Post = ({post}) => {
   }
 
   const commentsDis = allComments.map((comment) => <Comment commentText={comment} />)
+
+  const commentDataDisplay = commentData.comments.map((comment, i) => <Comment commentText={comment} postId={commentData.postId}/>)
 
   return (
     <div className="box-forming">
@@ -47,7 +53,8 @@ const Post = ({post}) => {
               </div>
               </div>
               <div className="comment">
-                {toggleComments && commentsDis}
+                {/* {toggleComments && commentsDis} */}
+                {toggleComments && commentDataDisplay}
 
               </div>
               <button onClick={commentBoxToggler}>add comment</button>

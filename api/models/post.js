@@ -1,3 +1,4 @@
+const { ObjectId } = require("mongodb");
 const mongoose = require("mongoose");
 const Comment = require("../models/comment");
 
@@ -6,9 +7,9 @@ const PostSchema = new mongoose.Schema({
   message: String,
   date: String,
   likes: Number,
-  comments: [String],
+  // comments: [String],
   // comments: [{ type: Comment.Types.ObjectId, ref: "Comment"}],
-  // comments: [mongoose.Schema.Types.ObjectId],
+  comments: [{type: ObjectId, ref: 'Comment'}],
   profile_picture_url: String,
   post_img_url: String,
 

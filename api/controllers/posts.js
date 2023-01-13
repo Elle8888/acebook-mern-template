@@ -26,13 +26,20 @@ const PostsController = {
   },
 
   CreateComment: async (req, res) => {
+    // console.log(req.body.post_id)
     const post = await Post.findById(req.body.post_id)
     const filter = { _id: req.body.post_id };
-    const new_comments = [...post.comments, req.body.text]
+    // req.body - comment object/schema
+    // console.log('BODY', req.body)
+    comment = new Comment(req.body)
+
+    comment.save()
+    
+    console.log('COMMENT', comment)
+    const new_comments = [...post.comments, comment]
     const update = { comments: new_comments };
     await Post.findOneAndUpdate(filter, update);
     res.json(post)
-    
   },
 
 };
