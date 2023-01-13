@@ -23,8 +23,6 @@ const LikeButton = (props) => {
           let data = await response.json()
           console.log(data)
         //   window.localStorage.setItem("token", data.token)
-          //This refreshes the page, there may be a nicer way of doing it 
-          // window.location.reload(false);
         }
     }
 
