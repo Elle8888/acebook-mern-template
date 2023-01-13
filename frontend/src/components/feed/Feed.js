@@ -30,15 +30,16 @@ const Feed = ({ navigate }) => {
     window.localStorage.removeItem("currentUser")
     navigate('/login')
   }
-  const displayProfile = ( <div className="wrapper">
-          <div className="box-forming3">
+  const displayProfile = (
+    <div className="wrapper">
+          <div className="profile-white-box">
             <br></br> 
-          <div className="box-forming5">
+          <div className="profile-picture">
           </div>
           <br></br>
           <br></br>
       
-        <div className="box-forming4">
+        <div className="username-box">
           <br></br> 
          <div className="overlays-username">
               <h2>{currentUser}</h2>
@@ -50,22 +51,26 @@ const Feed = ({ navigate }) => {
       <div className="user-update">
       <p>{}</p>
     </div> */}
-</div>
     </div>
-     </div>
+  </div>
+</div>
 )
     if(token) {
       return(
         <>
           <br></br>
-          <CreatePost current_user={currentUser} token={token} /> 
-          <p>{displayProfile}</p>
-          <div id='feed' role="feed">
-            <div id='posts'>
+          <div className='whole-page'>
+            <div id='feed' role="feed">
+              <div id='posts'>
               {posts.slice(0).reverse().map(
                 (post) => ( <Post post={ post } key={ post._id } /> )
               )}
               </div>
+            </div>
+            <div className='whole-profile'>
+              <div>{displayProfile}</div>
+              <CreatePost current_user={currentUser} token={token} /> 
+             </div> 
           </div>
         </>
       )
@@ -73,5 +78,8 @@ const Feed = ({ navigate }) => {
       navigate('/signin')
     }
 }
+// make sure the whole page is 100% width and 100vh
+// display flex
+// 
 
 export default Feed;
