@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 
 const LikeButton = (props) => {
-    const [likes, setLikes] = useState(0);
+    const [likes, setLikes] = useState(props.post.likes);
     const [isClicked, setIsClicked] = useState(false);
     const token = window.localStorage.getItem("token")
 
-    const sendLike = async (event) => {
+    const sendLike = async (likeValue) => {
         console.log("this is the id", props.post._id);
-        event.preventDefault();
         let response = await fetch('/posts/like', {
           method: 'post',
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ post_id: props.post._id, like: 1 })
+          body: JSON.stringify({ post_id: props.post._id, like: likeValue })
         })
       
         if (response.status !== 200) {
@@ -25,17 +24,18 @@ const LikeButton = (props) => {
           console.log(data)
         //   window.localStorage.setItem("token", data.token)
           //This refreshes the page, there may be a nicer way of doing it 
-          window.location.reload(false);
+          // window.location.reload(false);
         }
     }
 
     const handleClick = () => {
       if (isClicked) {
         setLikes(likes - 1);
-        sendLike();
+        sendLike(-1);
       } else {
         setLikes(likes + 1);
-        sendLike();
+        
+        sendLike(+1);
       }
       setIsClicked(!isClicked);
     };
