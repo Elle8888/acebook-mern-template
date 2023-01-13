@@ -3,14 +3,6 @@ const validator = require('validator')
 // import validator from 'validator'
 // const bcrypt = require('bcrypt')
 
-// const strongPasswordRegex = new RegExp(
-//   '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})',
-// )
-
-// const emailRegex = new RegExp(
-//   '/^(([^<>()[]\\.,;:s@"]+(.[^<>()[]\\.,;:s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/',
-// )
-
 const UserSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
@@ -30,32 +22,9 @@ UserSchema.statics.signup = async function (email, password) {
     throw Error('Email is not valid')
   }
 
-  // if (!strongPasswordRegex.test(password)) {
-  //   throw Error('Password not strong enough')
-  // }
-
   if (!validator.isStrongPassword(password)) {
     throw Error('Password does not meet the requirements')
   }
-  // if (password.length < 8) {
-  //   throw Error('Password must be at least 8 characters long')
-  // }
-
-  // if (!password.match(/[A-Z]/)) {
-  //   throw Error('Password must contain at least 1 uppercase letter')
-  // }
-
-  // if (!password.match(/[a-z]/)) {
-  //   throw Error('Password must contain at least 1 lowercase letter')
-  // }
-
-  // if (!password.match(/[0-9]/)) {
-  //   throw Error('Password must contain at least 1 number')
-  // }
-
-  // if (!password.match(/[!@#\$%\^&\*]/)) {
-  //   throw Error('Password must contain at least 1 special character')
-  // }
 
   const exists = await this.findOne({ email })
 
@@ -90,5 +59,4 @@ UserSchema.statics.signup = (email, password) => {
     });
 };
 */
-// module.exports = (User, UserSchema)
 module.exports = mongoose.model('User', UserSchema)
