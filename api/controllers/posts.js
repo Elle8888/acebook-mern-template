@@ -36,7 +36,7 @@ const PostsController = {
     const new_comments = [...post.comments, comment]
     const update = { comments: new_comments };
     await Post.findOneAndUpdate(filter, update);
-    res.json(post)
+    res.json(comment)
   },
   GetComments: async (req, res) => {
 

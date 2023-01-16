@@ -12,8 +12,8 @@ const Comment = ({comment, postId}) => {
 
     return (
     <div>
-        <p>{comment.text}</p>
         <p>{comment.author}</p>
+        <p>{comment.text}</p>
         <p>{comment.date}</p>
     </div>
         )
