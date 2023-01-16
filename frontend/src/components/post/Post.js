@@ -83,8 +83,7 @@ const Post = (props) => {
               <button onClick={commentsToggler} data-cy="toggle-btn" id='submit' role='submit-button'>Comments</button>
               <div className='likes-container'>
                
-                <LikeButton post={post}  />
-                <p>{props.post.likes}</p>
+                <LikeButton post={props.post}  />
               </div>
               </div>
               <div className="comment">
