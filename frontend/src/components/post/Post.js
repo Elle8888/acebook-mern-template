@@ -2,6 +2,7 @@ import React from 'react';
 import {useState, useEffect} from 'react'
 import Comment from '../comment/Comment'
 import './Post.css';
+import LikeButton from './Like'
 
 const Post = (props) => {
 
@@ -81,7 +82,8 @@ const Post = (props) => {
               <div className='below-post-text'>
               <button onClick={commentsToggler} data-cy="toggle-btn" id='submit' role='submit-button'>Comments</button>
               <div className='likes-container'>
-                <button role="like button" type="submit">Like</button> 
+               
+                <LikeButton post={post}  />
                 <p>{props.post.likes}</p>
               </div>
               </div>
