@@ -59,17 +59,6 @@ const Feed = ({ navigate }) => {
     }
   }
 
-
-  function toggleText() {
-    console.log("toggle")
-    var text = document.getElementById("new_post");
-    if (text.style.display === "none") {
-      text.style.display = "block";
-    } else {
-      text.style.display = "none";
-    }
-  }
-
   const handleNewPostMessageChange = (event) => {
     setNewPostMessage(event.target.value)
   }
