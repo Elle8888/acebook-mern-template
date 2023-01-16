@@ -1,23 +1,30 @@
-describe("Nav bar", () => {
-    it("redirects to '/signup'", () => {
-      cy.visit("/");
-      cy.get("#signup-link-nav").click();
+describe('Nav bar', () => {
+  before(() => {
+    cy.signup('user@email.com', '12345678Aa*')
+    cy.visit('/login')
+    cy.get('#email').type('someone@example.com')
+    cy.get('#password').type('password')
+    cy.get('#submit').click()
+  })
 
-      cy.url().should("include", "/signup");
-    });
+  it("redirects to '/posts'", () => {
+    cy.visit('/posts')
+    cy.get('#posts-link-nav').click()
 
-    it("redirects to '/login'", () => {
-        cy.visit("/");
-        cy.get("#login-link-nav").click();
+    cy.url().should('include', '/posts')
+  })
 
-        cy.url().should("include", "/login");
-      });
+  it("redirects to '/signup'", () => {
+    cy.visit('/posts')
+    cy.get('#signup-link-nav').click()
 
-    it("redirects to '/signup'", () => {
-        cy.visit("/");
-        cy.get("#posts-link-nav").click();
+    cy.url().should('include', '/signup')
+  })
 
-        cy.url().should("include", "/signup");
-    });
-      // needs login testing
-  });
+  it("redirects to '/login'", () => {
+    cy.visit('/posts')
+    cy.get('#login-link-nav').click()
+
+    cy.url().should('include', '/login')
+  })
+})

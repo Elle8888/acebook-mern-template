@@ -1,24 +1,35 @@
 import React from 'react';
+import './Post.css';
 import LikeButton from './Like'
 
 const Post = ({post}) => {
-  return(
-    <article data-cy="post" key={ post._id }>
-      <div class="post">
-        <h4>{post.author}</h4>
-        <p>{post.date}</p>
-        <p>{post.message}</p>
-        <LikeButton post={post}  />
-        <button>Comments</button>
-        <div class="comment">
-          <p>{post.comments}</p>
+
+  return (
+    <div className="box-forming">
+      <br></br>
+      <div className="overlay">
+          <article data-cy="post" key={ post._id }>
+            <div className="post-box">
+            <h3>{post.author}</h3>
+            <div className="post-date">
+              <p>{post.date}</p>
+            </div>
+            <div className="post-content">
+              <p>{post.message}</p>
+              <LikeButton post={post}  />
+              <p>{post.likes}</p>
+              <div className="inputs">
+                <input placeholder="Comment" type="text" />
+              </div>
+              <button role='submit-button' id='submit' type='submit' value='Submit'>Comments</button>
+              <div className="comment">
+                <p>{post.comments}</p>
+              </div>
+            </div>          
+            </div>
+          </article>
         </div>
-        
-        {/* <img> src={post.profile_picture_url}</img>   Currently breaks the rest if there are no images
-        <img> src={post.post_image_url}</img> 
-        */}
-      </div>
-    </article>
+    </div>
   )
 }
 

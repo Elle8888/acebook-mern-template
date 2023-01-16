@@ -1,24 +1,30 @@
-import './App.css';
+import './App.css'
 import LoginForm from '../auth/LoginForm'
 import SignUpForm from '../user/SignUpForm'
-import React from 'react';
+import React, { useState } from 'react'
 import Feed from '../feed/Feed'
-import {
-  useNavigate,
-  Routes,
-  Route,
-} from "react-router-dom";
-import Navbar from '../NavBar';
+import { useNavigate, Routes, Route } from 'react-router-dom'
+import Navbar from '../NavBar'
 
 const App = () => {
-    return (
-      <>
-        <Navbar />
-        <div className="container">
+  return (
+    <>
+      <Navbar />
+      <div className="container">
         <Routes>
-          <Route path='/posts'  element={<Feed navigate={ useNavigate() }/>}/>
-          <Route path='/login'  element={<LoginForm  navigate={ useNavigate() }/>}/>
-          <Route path='/signup' element={<SignUpForm navigate={ useNavigate() }/>}/>
+          <Route path="/posts" element={<Feed navigate={useNavigate()} />} />
+          <Route
+            path="/login"
+            element={<LoginForm navigate={useNavigate()} />}
+          />
+          <Route
+            path="/signup"
+            element={<SignUpForm navigate={useNavigate()} />}
+          />
+          <Route
+            path="/logout"
+            element={<LoginForm navigate={useNavigate()} />}
+          />
         </Routes>
         
         </div>
@@ -26,4 +32,4 @@ const App = () => {
     );
 }
 
-export default App;
+export default App
