@@ -1,5 +1,6 @@
 import React from 'react';
 import './Post.css';
+import LikeButton from './Like'
 
 const Post = ({post}) => {
 
@@ -15,7 +16,7 @@ const Post = ({post}) => {
             </div>
             <div className="post-content">
               <p>{post.message}</p>
-              <button role="like button" type="submit">Like</button> 
+              <LikeButton post={post}  />
               <p>{post.likes}</p>
               <div className="inputs">
                 <input placeholder="Comment" type="text" />

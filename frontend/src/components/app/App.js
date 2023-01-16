@@ -26,9 +26,10 @@ const App = () => {
             element={<LoginForm navigate={useNavigate()} />}
           />
         </Routes>
-      </div>
-    </>
-  )
+        
+        </div>
+      </>
+    );
 }
 
 export default App
