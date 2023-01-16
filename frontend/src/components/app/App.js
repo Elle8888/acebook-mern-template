@@ -7,10 +7,11 @@ import { useNavigate, Routes, Route } from 'react-router-dom'
 import Navbar from '../NavBar'
 
 const App = () => {
-  return (
-    <>
-      <Navbar />
-      <div className="container">
+
+    return (
+      <>
+        <Navbar />
+        <div className="container">
         <Routes>
           <Route path="/posts" element={<Feed navigate={useNavigate()} />} />
           <Route
