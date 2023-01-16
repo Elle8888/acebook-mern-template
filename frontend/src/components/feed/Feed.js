@@ -4,8 +4,8 @@ import CreatePost from './createPost/createPost'
 
 const Feed = ({ navigate }) => {
   const [posts, setPosts] = useState([]);
-  const [token, setToken] = useState(window.localStorage.getItem("token"));
-  const currentUser = window.localStorage.getItem("currentUser");
+  const currentUser = window.localStorage.getItem("currentUser"); // set on login
+  let token = window.localStorage.getItem("token"); // set on login
 
 
   useEffect(() => {
@@ -17,12 +17,16 @@ const Feed = ({ navigate }) => {
       })
         .then(response => response.json())
         .then(async data => {
+          console.log('THIS IS DATA FROM FETCH IN FEED', data)
           window.localStorage.setItem("token", data.token)
-          setToken(window.localStorage.getItem("token"))
+          token = data.token;
+          console.log('TOKEN UPDATED:', data.token)
           setPosts(data.posts);
         })
     }
   }, [])
+
+  console.log('POSTS RENDERED FROM FEED', posts)
 
 
   const logout = () => {
@@ -59,14 +63,15 @@ const Feed = ({ navigate }) => {
       return(
         <>
           <br></br>
+
           <div className='whole-page'>
-            <div id='feed' role="feed">
-              <div id='posts'>
-              {posts.slice(0).reverse().map(
-                (post) => ( <Post post={ post } key={ post._id } /> )
+            {/* <div id='feed' role="feed"> */}
+              <div id='posts' className='posts'>
+              {posts?.slice(0).reverse().map(
+                (post) => ( <Post post={ post } key={ post._id } current_user = {currentUser} /*token={token}*/ /> )
               )}
               </div>
-            </div>
+            {/* </div> */}
             <div className='whole-profile'>
               <div>{displayProfile}</div>
               <CreatePost current_user={currentUser} token={token} /> 

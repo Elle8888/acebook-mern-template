@@ -38,12 +38,7 @@ const LogInForm = ({ navigate }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
+      <form onSubmit={handleSubmit} className="main-forms-container">
 
         <div className="box-form">
           <div className="left">
