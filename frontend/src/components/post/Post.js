@@ -9,8 +9,6 @@ const Post = (props) => {
   const [toggleCommentBox, setToggleCommentBox] = useState(false)
   const [comment, setComment] = useState("")
   const [allComments, setAllComments] = useState(props.post.comments)
-
-  const [comments, setComments] = useState([]);
   const token = window.localStorage.getItem("token");
 
 
@@ -25,7 +23,7 @@ const Post = (props) => {
       })
         .then(response => response.json())
         .then(async data => {
-          setComments(data);
+          setAllComments(data);
 
         })
     }
@@ -65,12 +63,11 @@ const Post = (props) => {
     } else {
       console.log("oop: " + response.status)
       let data = await response.json()
-      setComments((prevComments) => [...prevComments, data])
-      // window.localStorage.setItem("token", data.token)
+      setAllComments((prevComments) => [...prevComments, data])
     }
   }
 
-  const commentDataDisplay = comments?.map((comment) => <Comment comment={comment} key={ comment._id } />)
+  const commentDataDisplay = allComments?.map((commentObj) => < Comment comment={commentObj} key={commentObj._id} />)
 
   return (
     <div className="box-forming">
@@ -89,9 +86,7 @@ const Post = (props) => {
               </div>
               </div>
               <div className="comment">
-                {/* {toggleComments && commentsDis} */}
                 {toggleComments && commentDataDisplay}
-
               </div>
               <button onClick={commentBoxToggler}>add comment</button>
               {toggleCommentBox && (<div className='add-comment'>

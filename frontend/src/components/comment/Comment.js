@@ -9,7 +9,6 @@ const Comment = ({comment, postId}) => {
     // needs text
 
     // when delete, update local state in post.
-
     return (
     <div>
         <p>{comment.author}</p>
