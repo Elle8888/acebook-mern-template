@@ -497,6 +497,23 @@ body {
 
   .comment-box {
     border-bottom: 1px solid black;
+
+  }
+
+  /* animation on homescreen */
+  .rotate {
+    animation: rotation 4s infinite linear;
+    margin-top: 10%;
+    position: center;
+  }
+
+  @keyframes rotation {
+    from {
+      transform: rotate(359deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
   }
 
   /* animation on homescreen */
@@ -521,11 +538,24 @@ body {
   }
 
   .likes-button {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
   }
 
   .like-button {
-    border-radius: 6px;
+    border: none;
+  }
+  
+  .comments-toggler {
+    height: 30px;
+    width: 30px;
+  }
+  /* .submit {
+    width: 10px;
+  } */
+
+  .toggle-comment-box {
+   border:none;
   }
 
+  
