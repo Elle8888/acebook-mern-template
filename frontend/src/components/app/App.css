@@ -334,9 +334,6 @@ body {
     font-size: x-small;
     text-overflow: clip;
   }
-  .post-author {
-
-  }
   .likes-container {
     display: flex;
     align-items: center;
@@ -398,10 +395,7 @@ body {
     margin-bottom: 30px;
   }
   .profile-white-box {
-    grid-column: 0;
     grid-row: 1/5;
-    /* margin-left: 45%; */
-   
     background-repeat: no-repeat;
     width: 450px;
     background: #FFFFFF;
@@ -421,16 +415,9 @@ body {
     position: absolute;
     margin-right: 20px;
     margin-left: 25px;
-    background-repeat: no-repeat;
     width: auto;
-    background: #55738e5f;
     border-radius: 10px;
-    overflow: hidden;
-    display: inline-block;
-    flex: 0 0 30%;
-    align-items: stretch;
-    justify-content: space-between;
-    margin-top: 360px;
+    margin-top: 340px;
     ;
   }
   .profile-picture {
