@@ -5,18 +5,18 @@ import Logo_resized from './Logo_resized.png'
 export default function Navbar() {
   return (
     <nav className="nav">
-      <Link to="/" className="site-title">
+      <Link to="/home" className="site-title">
         Fishbook
       </Link>
-      <a className="navbar-brand" href="/">
+      <a className="navbar-brand" href="/home">
         <div className="logo-image">
+          <CustomLink id="img-link-nav" to="/home">
           <img
-            src="images/Logo_resized.png"
-            // width="110"
-            // height="110"
+            src={Logo_resized}
             alt="Site logo"
             className="img-fluid"
           />
+          </CustomLink>
         </div>
       </a>
       <ul>
@@ -41,10 +41,10 @@ function CustomLink({ to, children, ...props }) {
   const resolvedPath = useResolvedPath(to)
   const isActive = useMatch({ path: resolvedPath.pathname, end: true })
   return (
-    <li className={isActive === to ? 'active' : ''}>
+    // <li className={isActive === to ? 'active' : ''}>
       <Link to={to} {...props}>
         {children}
       </Link>
-    </li>
+    // </li>
   )
 }

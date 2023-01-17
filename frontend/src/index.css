@@ -5,9 +5,34 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 90%;
+  text-align: centre;
+}
+
+.main {
+  height: 500px;
+  display: grid;
+  align-items: center;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* animation */
+
+.spinning-circle {
+  animation-name: logo-spin;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  width: 100%;
+  height: auto;
+  animation-timing-function: linear;
+  border-radius: 50%;
+}
+
+@keyframes logo-spin{
+  from{ transform: logo-spin(-360deg); }
+  to{ tranform: logo-spin(360deg); }
 }

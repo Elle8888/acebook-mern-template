@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 const LogInForm = ({ navigate }) => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  // const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (event) => {
@@ -12,7 +13,7 @@ const LogInForm = ({ navigate }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email: email, password: password })
+      body: JSON.stringify({ username: username /*, email: email*/, password: password })
     })
 
     if (response.status !== 201) {
@@ -22,19 +23,21 @@ const LogInForm = ({ navigate }) => {
       console.log("oop")
       let data = await response.json()
       window.localStorage.setItem("token", data.token)
-      window.localStorage.setItem("currentUser", email)
+      window.localStorage.setItem("currentUser", username)
       navigate('/posts');
     }
   }
 
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value)
-  }
+  // const handleEmailChange = (event) => {
+  //   setEmail(event.target.value)
+  // }
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value)
   }
-
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value)
+  }
 
   return (
     <div>
@@ -43,16 +46,17 @@ const LogInForm = ({ navigate }) => {
         <div className="box-form">
           <div className="left">
             <div className="overlay">
-              <h1>Fish Book</h1>
+              <h1>FishBook</h1>
             </div>
           </div>
           <div className="right">
             <h5>Login!</h5>
             <p>Don't have an account? <a href="/signup">Create Your Account</a> it takes less than a minute!</p>
             <div className="inputs">
-              <input placeholder='Email' id="email" type='text' value={email} onChange={handleEmailChange} required />
-
-                <input placeholder='Password' id="password" type='password' value={password} onChange={handlePasswordChange} required />
+              
+            <input placeholder='Username' id="username" type='username' value={username} onChange={handleUsernameChange} required />
+            {/* <input placeholder='Email' id="email" type='text' value={email} onChange={handleEmailChange} required /> */}
+            <input placeholder='Password' id="password" type='password' value={password} onChange={handlePasswordChange} required />
 
             </div>
 

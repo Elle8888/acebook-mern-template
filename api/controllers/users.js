@@ -6,10 +6,11 @@ const UsersController = {
     const payload = new User(req.body)
     const email = payload.email
     const password = payload.password
+    const username = payload.username 
 
     try {
-      const user = await User.signup(email, password)
-      res.status(201).json({ email, password })
+      const user = await User.signup(username, email, password)
+      res.status(201).json({ username, email, password })
     } catch (error) {
       res.status(400).json({ message: error.message })
     }
