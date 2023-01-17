@@ -66,9 +66,9 @@ const Feed = ({ navigate }) => {
 
           <div className='whole-page'>
             {/* <div id='feed' role="feed"> */}
-              <div id='posts' className='posts'>
+              <div id='posts' className='posts' data-cy="post">
               {posts?.slice(0).reverse().map(
-                (post) => ( <Post post={ post } key={ post._id } current_user = {currentUser} /*token={token}*/ /> )
+                (post) => ( <Post post={ post } key={ post._id } current_user = {currentUser}/> )
               )}
               </div>
             {/* </div> */}
