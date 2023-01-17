@@ -53,28 +53,17 @@ const LogInForm = ({ navigate }) => {
             <h5>Login!</h5>
             <p>Don't have an account? <a href="/signup">Create Your Account</a> it takes less than a minute!</p>
             <div className="inputs">
-              
             <input placeholder='Username' id="username" type='username' value={username} onChange={handleUsernameChange} required />
             {/* <input placeholder='Email' id="email" type='text' value={email} onChange={handleEmailChange} required /> */}
             <input placeholder='Password' id="password" type='password' value={password} onChange={handlePasswordChange} required />
-
             </div>
-
             <br></br>
-          
-          <div className="remember-me--forget-password">
-            <label>
-              <input type="checkbox" name="item" value="checkbox" />
-              <input type="checkbox" name="item" value="Yes"/>
-              <span className="text-checkbox">Remember me</span>
-              </label>
-              
             <button role='submit-button' id='submit' type="submit" value="Submit">Login</button>    
         </div>  
-          </div>
         </div>
-      </form>
-    </div>
+        </form>
+        </div>
+  
   );
 }
 

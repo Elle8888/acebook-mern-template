@@ -104,7 +104,7 @@ const SignUpForm = ({ navigate }) => {
             type="text"
             value={username}
             onChange={handleUsernameChange}
-          />
+          required/>
           {usernameError && <div className="error-msg">{usernameError}</div>}
 
           <input
@@ -113,7 +113,7 @@ const SignUpForm = ({ navigate }) => {
             type="text"
             value={email}
             onChange={handleEmailChange}
-          />
+          required/>
           {emailError && <div className="error-msg">{emailError}</div>}
 
           <input
@@ -122,23 +122,16 @@ const SignUpForm = ({ navigate }) => {
             type="password"
             value={password}
             onChange={handlePasswordChange}
-          />
+          required/>
           {passwordError && <div className="error-msg">{passwordError}</div>}
-
-          <div className="remember-me--forget-password">
-          <label>
-            <input type="checkbox" name="item" checked />
-            <span className="text-checkbox">Remember me</span>
-          </label>
+          <br></br>
           <button role="submit-button" id="submit" type="submit" value="Submit">
             Sign up
           </button>
         </div>
 
         </div>
-
-      </div>
-    </form>
+        </form>
   )
 }
 
