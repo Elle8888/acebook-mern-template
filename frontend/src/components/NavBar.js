@@ -9,7 +9,7 @@ export default function Navbar() {
       </Link>
       <a className="navbar-brand" href="/">
         <div className="logo-image">
-          <CustomLink id="img-link-nav" to="/posts">
+          <CustomLink id="img-link-nav" to="/">
           <img
             src={Logo_resized}
             alt="Site logo"

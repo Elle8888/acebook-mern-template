@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const LogInForm = ({ navigate }) => {
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (event) => {
@@ -13,7 +13,7 @@ const LogInForm = ({ navigate }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username: username, email: email, password: password })
+      body: JSON.stringify({ username: username /*, email: email*/, password: password })
     })
 
     if (response.status !== 201) {
@@ -28,9 +28,9 @@ const LogInForm = ({ navigate }) => {
     }
   }
 
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value)
-  }
+  // const handleEmailChange = (event) => {
+  //   setEmail(event.target.value)
+  // }
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value)
@@ -60,7 +60,7 @@ const LogInForm = ({ navigate }) => {
             <div className="inputs">
               
             <input placeholder='Username' id="username" type='username' value={username} onChange={handleUsernameChange} required />
-            <input placeholder='Email' id="email" type='text' value={email} onChange={handleEmailChange} required />
+            {/* <input placeholder='Email' id="email" type='text' value={email} onChange={handleEmailChange} required /> */}
             <input placeholder='Password' id="password" type='password' value={password} onChange={handlePasswordChange} required />
 
             </div>
