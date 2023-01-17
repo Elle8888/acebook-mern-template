@@ -565,8 +565,10 @@ body {
     text-align: center;
     font-family: 'Poppins', sans-serif;
     color: #fff;
+    height: 100%;
+    position: center;
   }
 
-  a:visited {
+  .creators a {
     color: white;
   }
