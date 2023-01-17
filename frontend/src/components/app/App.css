@@ -5,6 +5,13 @@ body {
   background-attachment: fixed;
   font-family: 'Open Sans', sans-serif;
   color: #333333;
+  width: 100%;
+  text-align: center;
+}
+.main {
+  height: 500px;
+  display: grid;
+  align-items: center;
 }
 
 .box-form {
@@ -503,6 +510,22 @@ body {
     border-bottom: 1px solid black;
   }
 
+  /* animation on homescreen */
+  .rotate {
+    animation: rotation 4s infinite linear;
+    margin-top: 10%;
+    position: center;
+  }
+
+  @keyframes rotation {
+    from {
+      transform: rotate(359deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+
   .img-fluid {
     height: 50px;
     width: 50px;
@@ -516,4 +539,4 @@ body {
   .like-button {
     border-radius: 6px;
   }
-  
+
