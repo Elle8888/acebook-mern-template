@@ -83,7 +83,7 @@ const SignUpForm = ({ navigate }) => {
 
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="main-forms-container">
       <div className="box-form">
         <div className="left">
           <div className="overlay">
@@ -124,19 +124,19 @@ const SignUpForm = ({ navigate }) => {
             onChange={handlePasswordChange}
           />
           {passwordError && <div className="error-msg">{passwordError}</div>}
-        </div>
 
-        <br></br>
-
-        <div className="remember-me--forget-password">
+          <div className="remember-me--forget-password">
           <label>
             <input type="checkbox" name="item" checked />
             <span className="text-checkbox">Remember me</span>
           </label>
           <button role="submit-button" id="submit" type="submit" value="Submit">
-            Submit
+            Sign up
           </button>
         </div>
+
+        </div>
+
       </div>
     </form>
   )

@@ -4,8 +4,8 @@ import CreatePost from './createPost/createPost'
 
 const Feed = ({ navigate }) => {
   const [posts, setPosts] = useState([]);
-  const [token, setToken] = useState(window.localStorage.getItem("token"));
-  const currentUser = window.localStorage.getItem("currentUser");
+  const currentUser = window.localStorage.getItem("currentUser"); // set on login
+  let token = window.localStorage.getItem("token"); // set on login
 
 
   useEffect(() => {
@@ -17,12 +17,16 @@ const Feed = ({ navigate }) => {
       })
         .then(response => response.json())
         .then(async data => {
+          console.log('THIS IS DATA FROM FETCH IN FEED', data)
           window.localStorage.setItem("token", data.token)
-          setToken(window.localStorage.getItem("token"))
+          token = data.token;
+          console.log('TOKEN UPDATED:', data.token)
           setPosts(data.posts);
         })
     }
   }, [])
+
+  console.log('POSTS RENDERED FROM FEED', posts)
 
 
   const logout = () => {
@@ -30,18 +34,48 @@ const Feed = ({ navigate }) => {
     window.localStorage.removeItem("currentUser")
     navigate('/login')
   }
-  
+  const displayProfile = (
+    <div className="wrapper">
+          <div className="profile-white-box">
+            <br></br> 
+          <div className="profile-picture">
+          </div>
+          <br></br>
+          <br></br>
+      
+        <div className="username-box">
+          <br></br> 
+         <div className="overlays-username">
+              <h2>{currentUser}</h2>
+            </div>   
+      {/* <div className="inputs">
+        <input placeholder="Status update" type="text" />
+      </div> */}
+      {/* <button role="submit-button" id="submit" type="submit" value="submit">Post status</button>
+      <div className="user-update">
+      <p>{}</p>
+    </div> */}
+    </div>
+  </div>
+</div>
+)
     if(token) {
       return(
         <>
           <br></br>
-          <CreatePost current_user = {currentUser} token={token} /> 
-          <div id='feed' role="feed">
-            <div id='posts'>
-              {posts.slice(0).reverse().map(
-                (post) => ( <Post post={ post } key={ post._id } /> )
+
+          <div className='whole-page'>
+            {/* <div id='feed' role="feed"> */}
+              <div id='posts' className='posts'>
+              {posts?.slice(0).reverse().map(
+                (post) => ( <Post post={ post } key={ post._id } current_user = {currentUser} /*token={token}*/ /> )
               )}
               </div>
+            {/* </div> */}
+            <div className='whole-profile'>
+              <div>{displayProfile}</div>
+              <CreatePost current_user={currentUser} token={token} /> 
+             </div> 
           </div>
         </>
       )
@@ -49,5 +83,8 @@ const Feed = ({ navigate }) => {
       navigate('/signin')
     }
 }
+// make sure the whole page is 100% width and 100vh
+// display flex
+// 
 
 export default Feed;
