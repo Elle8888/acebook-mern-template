@@ -414,7 +414,7 @@ body {
     margin-right: 20px;
     margin-left: 25px;
     background-repeat: no-repeat;
-    width: 40px;
+    width: auto;
     background: #55738e5f;
     border-radius: 10px;
     overflow: hidden;
@@ -507,3 +507,5 @@ body {
     height: 50px;
     width: 50px;
   }
+
+  
