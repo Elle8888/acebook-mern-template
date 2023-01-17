@@ -3,7 +3,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #333333;
   width: 100%;
   text-align: center;
@@ -184,8 +184,6 @@ label input[type='checkbox'] {
 
 /* navigation bar */
 
-=======
-
 label {
   display: block;
   position: relative;
@@ -246,10 +244,13 @@ body {
   align-items: stretch;
   gap: 2rem;
   padding: 0 1rem;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
 }
 
 .site-title {
   font-size: 2rem;
+  font-family: 'Oswald', sans-serif;
 }
 
 .logo-image {
@@ -493,6 +494,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'Oswald', sans-serif;
   }
 
   .comment {

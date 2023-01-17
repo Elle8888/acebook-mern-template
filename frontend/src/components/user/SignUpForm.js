@@ -87,7 +87,7 @@ const SignUpForm = ({ navigate }) => {
       <div className="box-form">
         <div className="left">
           <div className="overlay">
-            <h1>Fish Book</h1>
+            <h1>FishBook</h1>
           </div>
         </div>
         <div className="right">
