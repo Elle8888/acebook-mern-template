@@ -512,4 +512,8 @@ body {
     height: 20px;
     width: 20px;
   }
+
+  .like-button {
+    border-radius: 6px;
+  }
   
