@@ -3,6 +3,9 @@ import validator from 'validator'
 import './SignUpForm.css'
 
 const SignUpForm = ({ navigate }) => {
+  const [username, setUsername] = useState('')
+  const [usernameError, setUsernameError] = useState('')
+
   const [email, setEmail] = useState('')
   const [emailError, setEmailError] = useState('')
 
@@ -45,7 +48,7 @@ const SignUpForm = ({ navigate }) => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ email: email, password: password }),
+          body: JSON.stringify({ username: username, email: email, password: password }),
         }).then((response) => {
           if (response.status === 201) {
             navigate('/login')
@@ -63,6 +66,11 @@ const SignUpForm = ({ navigate }) => {
     }
   }
 
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value)
+    setUsernameError('')
+  }
+
   const handleEmailChange = (event) => {
     setEmail(event.target.value)
     setEmailError('')
@@ -72,6 +80,7 @@ const SignUpForm = ({ navigate }) => {
     setPassword(event.target.value)
     setPasswordError('')
   }
+
 
   return (
     <form onSubmit={handleSubmit}>
@@ -88,6 +97,16 @@ const SignUpForm = ({ navigate }) => {
             it takes less than a minute!
           </p>
           <div className="inputs"></div>
+          
+          <input
+            placeholder="Username"
+            id="username"
+            type="text"
+            value={username}
+            onChange={handleUsernameChange}
+          />
+          {usernameError && <div className="error-msg">{usernameError}</div>}
+
           <input
             placeholder="Email"
             id="email"

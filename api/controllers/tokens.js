@@ -4,6 +4,7 @@ const TokenGenerator = require("../models/token_generator")
 const SessionsController = {
 
   Create: (req, res) => {
+    const username = req.body.username 
     const email = req.body.email;
     const password = req.body.password;
 
@@ -13,6 +14,9 @@ const SessionsController = {
         res.status(401).json({ message: "auth error" });
       } else if (user.password !== password) {
         console.log("auth error: passwords do not match")
+        res.status(401).json({ message: "auth error" });
+      } else if (user.username !== username) {
+        console.log("auth error: usernames do not match")
         res.status(401).json({ message: "auth error" });
       } else {
         const token = await TokenGenerator.jsonwebtoken(user.id)
