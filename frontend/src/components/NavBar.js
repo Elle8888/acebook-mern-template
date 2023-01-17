@@ -5,12 +5,12 @@ import Logo_resized from './Logo_resized.png'
 export default function Navbar() {
   return (
     <nav className="nav">
-      <Link to="/" className="site-title">
+      <Link to="/home" className="site-title">
         Fishbook
       </Link>
-      <a className="navbar-brand" href="/">
+      <a className="navbar-brand" href="/home">
         <div className="logo-image">
-          <CustomLink id="img-link-nav" to="/">
+          <CustomLink id="img-link-nav" to="/home">
           <img
             src={Logo_resized}
             alt="Site logo"
