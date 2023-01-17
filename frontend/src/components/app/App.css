@@ -501,6 +501,7 @@ body {
 
   .comment-box {
     border-bottom: 1px solid black;
+    width: 100%;
   }
 
   .img-fluid {
@@ -509,11 +510,24 @@ body {
   }
 
   .likes-button {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
   }
 
   .like-button {
-    border-radius: 6px;
+    border: none;
   }
+  
+  .comments-toggler {
+    height: 30px;
+    width: 30px;
+  }
+  /* .submit {
+    width: 10px;
+  } */
+
+  .toggle-comment-box {
+   border:none;
+  }
+
   
