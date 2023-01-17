@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 import Feed from '../feed/Feed'
 import { useNavigate, Routes, Route } from 'react-router-dom'
 import Navbar from '../NavBar'
+import Home from '../home.js'
 
 const App = () => {
 
@@ -25,7 +26,8 @@ const App = () => {
           <Route
             path="/logout"
             element={<LoginForm navigate={useNavigate()} />}
-          />
+            />
+           <Route path="/home" element={<Home navigate={useNavigate()} />} />
         </Routes>
         
         </div>

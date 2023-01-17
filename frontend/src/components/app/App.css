@@ -5,7 +5,7 @@ body {
   background-attachment: fixed;
   font-family: 'Open Sans', sans-serif;
   color: #333333;
-  width: 90%;
+  width: 100%;
   text-align: center;
 }
 .main {
@@ -512,21 +512,16 @@ body {
 
   /* animation on homescreen */
   .rotate {
-    animation: rotation 2s infinite linear;
+    animation: rotation 4s infinite linear;
     margin-top: 10%;
     position: center;
   }
 
   @keyframes rotation {
     from {
-      transform: rotate(0deg);
-    }
-    to {
       transform: rotate(359deg);
     }
-  }
-
-  .fish{
-    width: 100%;
-    background-image: "https://www.pinclipart.com/picdir/middle/1-19380_pontoon-boat-clipart.png"
+    to {
+      transform: rotate(0deg);
+    }
   }
