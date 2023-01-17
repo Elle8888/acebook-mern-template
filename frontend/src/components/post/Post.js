@@ -45,6 +45,7 @@ const Post = (props) => {
   const updateCommentsArray = () => {
     setAllComments([...allComments, comment]);
     sendComment();
+    setComment('')
   }
   
   const sendComment = async() => {
