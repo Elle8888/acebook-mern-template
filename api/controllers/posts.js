@@ -32,7 +32,6 @@ const PostsController = {
     await Post.findOneAndUpdate(filter, update);
     res.json(post)
   },
-
   CreateComment: async (req, res) => {
     const post = await Post.findById(req.body.post_id)
     const filter = { _id: req.body.post_id };
@@ -52,6 +51,14 @@ const PostsController = {
     const comments = await Comment.find(filter)
     console.log("COMMENTS: ", comments)
     res.json(comments)
+  },
+  EditPost: async(req, res) => {
+    const post = await Post.findById(req.body.post_id)
+    const filter = { _id: req.body.post_id };
+    const new_message = req.body.message;
+    const update = { message: new_message };
+    await Post.findOneAndUpdate(filter, update);
+    res.json(new_message)
   },
 
 };

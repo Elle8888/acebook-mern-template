@@ -15,7 +15,7 @@ const LikeButton = (props) => {
           },
           body: JSON.stringify({ post_id: props.post._id, like: likeValue })
         })
-      
+
         if (response.status !== 200) {
           console.log("post failed, Error status:" + response.status)
         } else {
@@ -32,17 +32,17 @@ const LikeButton = (props) => {
         sendLike(-1);
       } else {
         setLikes(likes + 1);
-        
+
         sendLike(+1);
       }
       setIsClicked(!isClicked);
     };
-  
+
     return (
       <button className={ `like-button ${isClicked && 'liked'}` } onClick={ handleClick }>
         <span className="likes-counter">{ `Like | ${likes}` }</span>
       </button>
     );
   };
-  
+
   export default LikeButton;
