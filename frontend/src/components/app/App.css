@@ -580,24 +580,223 @@ body {
     height: 100%;
     grid-auto-rows: minmax(100px, 1fr);
     gap: 10px;
+    margin-top:20px;
   }
 
   .one-icon {
-    grid-column: 5;
+    grid-column: 4;
     grid-row: 1/4;
     background-image: url('https://img.freepik.com/free-vector/cute-octopus-eating-ramen-noodle-cartoon-vector-icon-illustration-animal-food-icon-concept-isolated_138676-6722.jpg?w=1380&t=st=1674043557~exp=1674044157~hmac=06931f90ad2907f2739b65581fd08eadabf5eeb7e5718708e066cb0edc7e71ad');
     border-radius: 10%;
     background-size: cover;
     height: 45%;
-    width:30%;
+    width:50%;
+    margin-left: 20%;
   }
 
   .two-icon {
-    grid-column: 4;
+    grid-column: 5;
     grid-row: 1/4;
+    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/orange-squid.jpg');
+    background-size: cover;
+    height: 45%;
+    width:50%;
+    margin-left: 20%;
+    border-radius: 10%;
+  }
+
+  .three-icon {
+    grid-column: 3;
+    grid-row: 1/4;
+    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/chef-fish.jpg');
+    border-radius: 10%;
+    background-size: cover;
+    height: 45%;
+    width:50%;
+    margin-left: 20%;
+  }
+
+  .four-icon {
+    grid-column: 2;
+    grid-row: 1/4;
+    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/fishng-fish.jpg');
+    border-radius: 10%;
+    background-size: cover;
+    height: 45%;
+    width:50%;
+    margin-left:25%;
+  }
+
+  .five-icon {
+    grid-column: 1;
+    grid-row: 1/4;
+    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/shrimp.jpg');
+    background-size: cover;
+    height: 45%;
+    width:50%;
+    margin-left: 30%;
+    border-radius: 10%;
+  }
+
+  .six-icon {
+    grid-column: 4;
+    grid-row: 3/6;
+    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/hench-shark.jpg');
+    border-radius: 10%;
+    background-size: cover;
+    height: 45%;
+    width:50%;
+    margin-left: 20%;
+  }
+
+  .seven-icon {
+    grid-column: 5;
+    grid-row: 3/6;
+    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/hungry-astronaut.jpg');
+    border-radius: 10%;
+    background-size: cover;
+    height: 45%;
+    width:50%;
+    margin-left: 20%;
+  }
+
+  .eight-icon {
+    grid-column: 3;
+    grid-row: 3/6;
+    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/magikarp-ramen.jpg');
+    border-radius: 10%;
+    background-size: cover;
+    height: 45%;
+    width:50%;
+    margin-left: 20%;
+  }
+
+  .nine-icon {
+    grid-column: 2;
+    grid-row: 3/6;
+    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/diver.jpg');
+    background-size: cover;
+    height: 45%;
+    width:50%;
+    margin-left:25%;
+    border-radius: 10%;
+  }
+
+  .ten-icon {
+    grid-column: 1;
+    grid-row: 3/6;
+    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/cowboy-astronaut.jpg');
+    border-radius: 10%;
+    background-size: cover;
+    height: 45%;
+    width:50%;
+    margin-left: 30%;
+  }
+  .el-icon {
+    grid-column: 1;
+    grid-row: 5/8;
+    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/shark-cowboy.jpg');
+    border-radius: 10%;
+    background-size: cover;
+    height: 45%;
+    width:50%;
+    margin-left: 30%;
+  }
+
+  .twe-icon {
+    grid-column: 4;
+    grid-row: 5/8;
+    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/axolotl.jpg');
+    border-radius: 10%;
+    background-size: cover;
+    height: 45%;
+    width:50%;
+    margin-left: 20%;
+  }
+
+  .th-icon {
+    grid-column: 5;
+    grid-row: 5/8;
+    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/non-magikarp-funny-fish.jpg');
+    border-radius: 10%;
+    background-size: cover;
+    height: 45%;
+    width:50%;
+    margin-left: 20%;
+  }
+
+  .fo-icon {
+    grid-column: 3;
+    grid-row: 5/8;
+    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/fishing-diver.jpg');
+    border-radius: 10%;
+    background-size: cover;
+    height: 45%;
+    width:50%;
+    margin-left: 20%;
+  }
+
+  .fi-icon {
+    grid-column: 2;
+    grid-row: 5/8;
+    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/penguin.jpg');
+    border-radius: 10%;
+    background-size: cover;
+    height: 45%;
+    width:50%;
+    margin-left:25%;
+  }
+  .si-icon {
+    grid-column: 1;
+    grid-row: 7/10;
+    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/hench-bear.jpg');
+    border-radius: 10%;
+    background-size: cover;
+    height: 45%;
+    width:50%;
+    margin-left: 30%;
+  }
+
+  .se-icon {
+    grid-column: 4;
+    grid-row: 7/10;
+    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/catfish.jpg');
+    border-radius: 10%;
+    background-size: cover;
+    height: 45%;
+    width:50%;
+    margin-left: 20%;
+  }
+
+  .ei-icon {
+    grid-column: 5;
+    grid-row: 7/10;
+    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/fishing-penguin.jpg');
+    border-radius: 10%;
+    background-size: cover;
+    height: 45%;
+    width:50%;
+    margin-left: 20%;
+  }
+
+  .ni-icon {
+    grid-column: 3;
+    grid-row: 7/10;
     background-image: url('https://img.freepik.com/free-vector/cute-octopus-eating-takoyaki-cartoon-vector-icon-illustration-animal-food-icon-concept-isolated-pr_138676-4795.jpg?w=1380&t=st=1674043819~exp=1674044419~hmac=9c3ff370efde3df0e29c9c7abe363ff98f96790ae127897a97f7115bda0859ce');
     border-radius: 10%;
     background-size: cover;
     height: 45%;
-    width:30%;
+    width:50%;
+    margin-left: 20%;
+  }
+
+  .tw-icon {
+    grid-column: 2;
+    grid-row: 7/10;
+    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/chef-astronaut.jpg');
+    border-radius: 10%;
+    background-size: cover;
+    height: 45%;
+    width:50%;
+    margin-left:25%;
   }
