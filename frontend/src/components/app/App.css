@@ -518,7 +518,7 @@ body {
   from {
     transform: rotate(359deg);
   }
-
+}
   .likes-container {
     display: flex;
     align-items: center;
