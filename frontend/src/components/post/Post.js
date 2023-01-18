@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Comment from '../comment/Comment';
 import './Post.css';
+import './Edit.css';
 import LikeButton from './Like';
 
 const Post = (props) => {
@@ -100,7 +101,7 @@ const sendUpdatedPost = async() => {
 const editButton = 
    window.localStorage.getItem("currentUser") === props.post.author ? (
     <div>
-      <button onClick={openEditPostField}>Edit</button>
+      <button className="edit-button" onClick={openEditPostField}>Edit</button>
     </div>
     ) : (
       <p></p>
@@ -133,12 +134,11 @@ const editArea =
               <p className='post-date'>{props.post.date}</p>
               </div>
             <div className="post-content">
-              {editButton}
-              {editArea}
+              
               <div className='below-post-text'>
               <button onClick={commentsToggler} data-cy="toggle-btn" className= "toggle-comment-box" id='submit' role='submit-button'>
               <img className= "comments-toggler" src="https://simg.nicepng.com/png/small/119-1196219_ic-comment-comments-comments-icon-transparent.png" alt="Comments"></img>
-            </button>
+              </button>
               <div className='likes-container'>
                 <LikeButton post={props.post}  />
               </div>
@@ -146,11 +146,16 @@ const editArea =
               <div className="comment">
                 {toggleComments && commentDataDisplay}
               </div>
-              <button onClick={commentBoxToggler}>add comment</button>
+              
               {toggleCommentBox && (<div className='add-comment'>
             <textarea className='add-comment-textbox' onChange={handleInput} value={comment}></textarea>
             <button onClick={updateCommentsArray}>post</button>
-          </div>)}
+             </div>)}
+              {editArea}
+              {editButton}
+              <div>
+              <button className="add-comment-button" onClick={commentBoxToggler}>Add Comment</button>
+              </div>
             </div>
             </div>
             </div>

@@ -1,0 +1,18 @@
+.post-container {
+    position: relative;
+}
+
+.edit-button {
+    color: black;
+    background-color: whitesmoke;
+    border: none;
+    border-radius: 2px;
+    padding: 8px 12px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    color: white;
+    background-color: lightblue;
+}
