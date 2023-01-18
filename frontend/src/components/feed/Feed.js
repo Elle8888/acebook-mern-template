@@ -35,16 +35,16 @@ const Feed = ({ navigate }) => {
     navigate('/login')
   }
   const displayProfile = (
-    <div className="wrapper">
+    <div className="wrapper profile-wrapper">
           <div className="profile-white-box">
-            <br></br> 
+            {/* <br></br>  */}
           <div className="profile-picture">
           </div>
-          <br></br>
-          <br></br>
+          {/* <br></br>
+          <br></br> */}
       
         <div className="username-box">
-          <br></br> 
+          {/* <br></br>  */}
          <div className="overlays-username">
               <h2>{currentUser}</h2>
             </div>   
@@ -66,14 +66,14 @@ const Feed = ({ navigate }) => {
 
           <div className='whole-page'>
             {/* <div id='feed' role="feed"> */}
-              <div id='posts' className='posts'>
+              <div id='posts' className='posts' data-cy="post">
               {posts?.slice(0).reverse().map(
-                (post) => ( <Post post={ post } key={ post._id } current_user = {currentUser} /*token={token}*/ /> )
+                (post) => ( <Post post={ post } key={ post._id } current_user = {currentUser}/> )
               )}
               </div>
             {/* </div> */}
             <div className='whole-profile'>
-              <div>{displayProfile}</div>
+              {displayProfile}
               <CreatePost current_user={currentUser} token={token} /> 
              </div> 
           </div>
