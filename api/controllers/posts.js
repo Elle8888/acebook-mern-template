@@ -24,6 +24,7 @@ const PostsController = {
       res.status(201).json({ message: 'OK', token: token });
     });
   },
+
   Like: async (req, res) => {
     const post = await Post.findById(req.body.post_id)
     const filter = { _id: req.body.post_id };
