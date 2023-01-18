@@ -13,7 +13,7 @@ const Post = (props) => {
   const [isEditing, setIsEditing] = useState(false);
   const [newMessage, setNewMessage] = useState(props.post.message);
   const [postMessage, setPostMessage] = useState(props.post.message);
-  const [toggleEditPost, setEditPost] = useState("");
+  // const [toggleEditPost, setEditPost] = useState("");
 
   const openEditPostField = () => {
     setIsEditing((isEditing) => !isEditing)
