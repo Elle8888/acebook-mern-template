@@ -15,7 +15,7 @@ const LikeButton = (props) => {
           },
           body: JSON.stringify({ post_id: props.post._id, like: likeValue })
         })
-      
+
         if (response.status !== 200) {
           console.log("post failed, Error status:" + response.status)
         } else {
@@ -32,12 +32,12 @@ const LikeButton = (props) => {
         sendLike(-1);
       } else {
         setLikes(likes + 1);
-        
+
         sendLike(+1);
       }
       setIsClicked(!isClicked);
     };
-  
+
     return (
       <button className={ `like-button ${isClicked && 'liked'}` } onClick={ handleClick }>
         <img className= "likes-button" src="https://www.clipartmax.com/png/small/179-1790678_fish-heart-food-cat-pet-cat.png" alt="Fish Heart Food Cat Pet - Cat @clipartmax.com"></img>
@@ -45,5 +45,5 @@ const LikeButton = (props) => {
       </button>
     );
   };
-  
+
   export default LikeButton;
