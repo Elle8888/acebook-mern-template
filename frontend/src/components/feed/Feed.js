@@ -46,17 +46,17 @@ console.log("FISH", selectedFish)
   }
   
   const displayProfile = (
-    <div className="wrapper">
+    <div className="wrapper profile-wrapper">
           <div className="profile-white-box">
+
             <br></br> 
-          {/* <div onClick={openFishSelector} className={`profile-picture ${selectedFish}`}> */}
           <div onClick={openFishSelector} className={selectedFish ? `${selectedFish} fish-picture` : "profile-picture"}>
           </div>
-          <br></br>
-          <br></br>
+          {/* <br></br>
+          <br></br> */}
       
         <div className="username-box">
-          <br></br> 
+          {/* <br></br>  */}
          <div className="overlays-username">
               <h2>{currentUser}</h2>
             </div>   
@@ -72,14 +72,15 @@ console.log("FISH", selectedFish)
           <div className='whole-page'>
             {fishSelectorisVisible && <Icons setSelectedFish={setSelectedFish} openFishSelector={openFishSelector}/>}
             {/* <div id='feed' role="feed"> */}
-              <div id='posts' className='posts'>
+              <div id='posts' className='posts' data-cy="post">
               {posts?.slice(0).reverse().map(
-                (post) => ( <Post post={ post } key={ post._id } current_user = {currentUser} /*token={token}*/ /> )
+                (post) => ( <Post post={ post } key={ post._id } current_user = {currentUser} setPosts={setPosts} /*token={token}*/ /> )
+
               )}
               </div>
             {/* </div> */}
             <div className='whole-profile'>
-              <div>{displayProfile}</div>
+              {displayProfile}
               <CreatePost current_user={currentUser} token={token} /> 
              </div> 
           </div>

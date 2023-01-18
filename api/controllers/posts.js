@@ -24,6 +24,7 @@ const PostsController = {
       res.status(201).json({ message: 'OK', token: token });
     });
   },
+
   Like: async (req, res) => {
     const post = await Post.findById(req.body.post_id)
     const filter = { _id: req.body.post_id };
@@ -53,6 +54,14 @@ const PostsController = {
     console.log("COMMENTS: ", comments)
     res.json(comments)
   },
+
+  // error if post does not exist?
+  Delete: async (req, res) => {
+    await Post.deleteOne({ _id: req.body._id})
+    const allPosts = await Post.find()
+    console.log("ALL", allPosts)
+    res.status(200).json(allPosts)
+  }
 
 };
 
