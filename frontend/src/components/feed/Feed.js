@@ -35,16 +35,16 @@ const Feed = ({ navigate }) => {
     navigate('/login')
   }
   const displayProfile = (
-    <div className="wrapper">
+    <div className="wrapper profile-wrapper">
           <div className="profile-white-box">
-            <br></br> 
+            {/* <br></br>  */}
           <div className="profile-picture">
           </div>
-          <br></br>
-          <br></br>
+          {/* <br></br>
+          <br></br> */}
       
         <div className="username-box">
-          <br></br> 
+          {/* <br></br>  */}
          <div className="overlays-username">
               <h2>{currentUser}</h2>
             </div>   
@@ -73,7 +73,7 @@ const Feed = ({ navigate }) => {
               </div>
             {/* </div> */}
             <div className='whole-profile'>
-              <div>{displayProfile}</div>
+              {displayProfile}
               <CreatePost current_user={currentUser} token={token} /> 
              </div> 
           </div>
