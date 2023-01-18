@@ -34,6 +34,7 @@ const Feed = ({ navigate }) => {
     window.localStorage.removeItem("currentUser")
     navigate('/login')
   }
+  
   const displayProfile = (
     <div className="wrapper">
           <div className="profile-white-box">
