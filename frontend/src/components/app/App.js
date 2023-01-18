@@ -7,6 +7,7 @@ import { useNavigate, Routes, Route } from 'react-router-dom'
 import Navbar from '../NavBar'
 import Home from '../home.js'
 import Creators from '../creators.js'
+import Icons from '../icons.js'
 
 const App = () => {
 
@@ -31,6 +32,8 @@ const App = () => {
             <Route path="/home" element={<Home navigate={useNavigate()} />}
             />
             <Route path="/creators" element={<Creators navigate={useNavigate()} />}
+            />
+            <Route path="/icons" element={<Icons navigate={useNavigate()} />}
             />
         </Routes>
         
