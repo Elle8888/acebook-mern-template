@@ -1,0 +1,9 @@
+.logout-btn {
+  background-color: #4d4dff;
+  color: white;
+  padding: 0;
+  border: none;
+  font-size: 1rem;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+}
