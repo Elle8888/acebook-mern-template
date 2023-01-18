@@ -333,9 +333,12 @@ body {
   .post-date {
     font-size: x-small;
     text-overflow: clip;
+    text-decoration: underline black 1px;
+  }
+  .post-headings {
   }
   .post-author {
-
+    text-decoration: underline black 1px;
   }
   .likes-container {
     display: flex;
@@ -347,6 +350,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-top: 1px solid rgba(158, 156, 156, 0.513);
+    
   }
   .add-comment {
     margin-top: 1em;
@@ -510,6 +515,7 @@ body {
 
   .comment-box {
     border-bottom: 1px solid black;
+    border-top: 1px solid black;
 
   }
 
@@ -571,4 +577,7 @@ body {
    border:none;
   }
 
+  .post-message {
+    
+  }
   

@@ -84,7 +84,7 @@ const Post = (props) => {
               <p className='post-date'>{props.post.date}</p>
               </div>
             <div className="post-content">
-              <p>{props.post.message}</p>
+              <p className="post-message">{props.post.message}</p>
               <div className='below-post-text'>
               <button onClick={commentsToggler} data-cy="toggle-btn" className= "toggle-comment-box" id='submit' role='submit-button'>
               <img className= "comments-toggler" src="https://simg.nicepng.com/png/small/119-1196219_ic-comment-comments-comments-icon-transparent.png" alt="Comments"></img>
