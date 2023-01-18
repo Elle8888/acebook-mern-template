@@ -56,11 +56,8 @@ console.log("FISH", selectedFish)
           <br></br> */}
       
         <div className="username-box">
-          {/* <br></br>  */}
-         <div className="overlays-username">
               <h2>{currentUser}</h2>
             </div>   
-    </div>
   </div>
 </div>
 )
