@@ -15,21 +15,21 @@ const Post = (props) => {
   console.log('PROPS IN POST', props)
 
 
-    useEffect(() => {
-      //Getting the comments for each post
-    if(token) {
-      fetch(`/posts/comments/${props.post._id}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        },
-      })
-        .then(response => response.json())
-        .then(async data => {
-          setAllComments(data);
+  //   useEffect(() => {
+  //     //Getting the comments for each post
+  //   if(token) {
+  //     fetch(`/posts/comments/${props.post._id}`, {
+  //       headers: {
+  //         'Authorization': `Bearer ${token}`
+  //       },
+  //     })
+  //       .then(response => response.json())
+  //       .then(async data => {
+  //         setAllComments(data);
 
-        })
-    }
-  }, [])
+  //       })
+  //   }
+  // }, [])
 
   const commentsToggler = () => {
     setToggleComments((toggleComments) => !toggleComments)
@@ -86,11 +86,12 @@ const Post = (props) => {
         console.log("oop: " + response.status)
         let data = await response.json()
         console.log('THIS IS RETURNED DATA', data)
-        setAllComments(data)
+        props.setPosts(data)
       }
   }
 
   const commentDataDisplay = allComments?.map((commentObj) => < Comment comment={commentObj} key={commentObj._id} />)
+  // const commentDataDi = allComments?.map((commentObj) => < Comment comment={commentObj} key={commentObj._id} />)
 
   return (
     // <div className="box-forming">
