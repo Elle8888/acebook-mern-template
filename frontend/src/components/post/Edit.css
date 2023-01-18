@@ -8,11 +8,11 @@
     border: none;
     border-radius: 2px;
     padding: 8px 12px;
-    font-size: 12px;
+    font-size: 10px;
     cursor: pointer;
 }
 
 .edit-button:hover {
     color: white;
-    background-color: lightblue;
+    background-color: #2aa9e0;
 }

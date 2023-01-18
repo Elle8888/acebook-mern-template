@@ -237,7 +237,8 @@ body {
 }
 
 .nav {
-  background-color: #4d4dff;
+  /* background-color: #4d4dff; */
+  background-color: #1da1f2;
   color: white;
   display: flex;
   justify-content: space-between;

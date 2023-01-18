@@ -1,4 +1,5 @@
 import React, {useState } from 'react';
+import './createPost.css';
 
 const CreatePost = (props) => {
   const [newPostMessage, setNewPostMessage] = useState("");
@@ -46,11 +47,12 @@ const CreatePost = (props) => {
     
   return  ( 
     <div className="create-post">
-     <button id="create-post" onClick={openNewPostField}>
-        Create post
-      </button>
-      <div>{toggleNewPost && newPostField }</div>
-    </div>
+    <button className="create-post" id="create-post" onClick={openNewPostField}>
+      Create post
+    </button>
+    <div>{toggleNewPost && newPostField }</div>
+  </div>
+
   )
   
 }
