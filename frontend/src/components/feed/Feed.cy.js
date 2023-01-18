@@ -6,6 +6,7 @@ describe("Feed", () => {
   it("Calls the /posts endpoint and lists all the posts", () => {
     window.localStorage.setItem("token", "fakeToken")
 
+
     cy.intercept('GET', '/posts', (req) => {
       req.reply({
         statusCode: 200,
@@ -33,6 +34,7 @@ describe("Feed", () => {
 
   cy.mount(<Feed navigate={navigate}/>)
   cy.mount(<Post />)
+
     
     cy.wait("@getPosts").then(() =>{
       cy.get('[data-cy="post"]')

@@ -45,6 +45,7 @@ const Post = (props) => {
   const updateCommentsArray = () => {
     setAllComments([...allComments, comment]);
     sendComment();
+    setComment('')
   }
   
   const sendComment = async() => {
@@ -86,7 +87,9 @@ const Post = (props) => {
             <div className="post-content">
               <p>{props.post.message}</p>
               <div className='below-post-text'>
-              <button onClick={commentsToggler} data-cy="toggle-btn" id='submit' role='submit-button'>Comments</button>
+              <button onClick={commentsToggler} data-cy="toggle-btn" className= "toggle-comment-box" id='submit' role='submit-button'>
+              <img className= "comments-toggler" src="https://simg.nicepng.com/png/small/119-1196219_ic-comment-comments-comments-icon-transparent.png" alt="Comments"></img>
+            </button>
               <div className='likes-container'>
                
                 <LikeButton post={props.post}  />
