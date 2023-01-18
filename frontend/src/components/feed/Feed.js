@@ -34,11 +34,25 @@ const Feed = ({ navigate }) => {
     window.localStorage.removeItem("currentUser")
     navigate('/login')
   }
+
+  var loadFile = function (event) {
+    var image = document.getElementById("output");
+    image.src = URL.createObjectURL(event.target.files[0]);
+    console.log(event.target.files[0]);
+  };
+  
+
   const displayProfile = (
     <div className="wrapper">
           <div className="profile-white-box">
             <br></br> 
-          <div className="profile-picture">
+            <div class="profile-pic">
+              <label class="-label" for="file">
+                <span class="glyphicon glyphicon-camera"></span>
+                <span>Change Image</span>
+              </label>
+                <input id="file" type="file" onchange={(event) => loadFile(event)}/>
+                  <img src="./frontend/public/standard-icon" id="output" width="200" />
           </div>
           <br></br>
           <br></br>
