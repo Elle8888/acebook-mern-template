@@ -574,6 +574,9 @@ body {
   }
 
   .icons {
+    position: fixed;
+    top: 0;
+    right: 0;
     display: grid;
     grid-template-columns: 1fr, repeat(5);
     width: 100%;
@@ -581,6 +584,8 @@ body {
     grid-auto-rows: minmax(100px, 1fr);
     gap: 10px;
     margin-top:20px;
+    background: #55738ea4;
+    z-index: 999;
   }
 
   .one-icon {
@@ -799,4 +804,20 @@ body {
     height: 45%;
     width:50%;
     margin-left:25%;
+  }
+
+  .fish-picture {
+    background-repeat: no-repeat;
+    position:absolute;
+    grid-column: 3;
+    justify-content: space-between;
+    color: #000000;
+    float: right;
+    border-radius: 10px;
+    margin-right: 25px;
+    margin-left: 25px;
+    width: 400px;
+    height: 400px;
+    background-size: cover;
+    overflow: hidden;
   }
