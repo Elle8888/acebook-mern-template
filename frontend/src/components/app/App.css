@@ -815,18 +815,20 @@ body {
   .two-icon {
     grid-column: 5;
     grid-row: 1/4;
-    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/orange-squid.jpg');
+    background-image: url("../../../public/avatars/orange-squid.jpg");
+    /* background-image: url('../../avatars/orange-squid.jpg'); */
     background-size: cover;
     height: 45%;
     width:50%;
     margin-left: 20%;
     border-radius: 10%;
   }
+  
 
   .three-icon {
     grid-column: 3;
     grid-row: 1/4;
-    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/chef-fish.jpg');
+    background-image: url('../../../public/avatars/chef-fish.jpg');
     border-radius: 10%;
     background-size: cover;
     height: 45%;
@@ -837,7 +839,7 @@ body {
   .four-icon {
     grid-column: 2;
     grid-row: 1/4;
-    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/fishng-fish.jpg');
+    background-image: url('../../../public/avatars/fishng-fish.jpg');
     border-radius: 10%;
     background-size: cover;
     height: 45%;
@@ -848,7 +850,7 @@ body {
   .five-icon {
     grid-column: 1;
     grid-row: 1/4;
-    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/shrimp.jpg');
+    background-image: url('../../../public/avatars/shrimp.jpg');
     background-size: cover;
     height: 45%;
     width:50%;
@@ -859,7 +861,7 @@ body {
   .six-icon {
     grid-column: 4;
     grid-row: 3/6;
-    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/hench-shark.jpg');
+    background-image: url('../../../public/avatars/hench-shark.jpg');
     border-radius: 10%;
     background-size: cover;
     height: 45%;
@@ -870,7 +872,7 @@ body {
   .seven-icon {
     grid-column: 5;
     grid-row: 3/6;
-    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/hungry-astronaut.jpg');
+    background-image: url('../../../public/avatars/hungry-astronaut.jpg');
     border-radius: 10%;
     background-size: cover;
     height: 45%;
@@ -881,7 +883,7 @@ body {
   .eight-icon {
     grid-column: 3;
     grid-row: 3/6;
-    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/magikarp-ramen.jpg');
+    background-image: url('../../../public/avatars/magikarp-ramen.jpg');
     border-radius: 10%;
     background-size: cover;
     height: 45%;
@@ -892,7 +894,7 @@ body {
   .nine-icon {
     grid-column: 2;
     grid-row: 3/6;
-    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/diver.jpg');
+    background-image: url('../../../public/avatars/diver.jpg');
     background-size: cover;
     height: 45%;
     width:50%;
@@ -903,7 +905,7 @@ body {
   .ten-icon {
     grid-column: 1;
     grid-row: 3/6;
-    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/cowboy-astronaut.jpg');
+    background-image: url('../../../public/avatars/cowboy-astronaut.jpg');
     border-radius: 10%;
     background-size: cover;
     height: 45%;
@@ -913,7 +915,7 @@ body {
   .el-icon {
     grid-column: 1;
     grid-row: 5/8;
-    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/shark-cowboy.jpg');
+    background-image: url('../../../public/avatars/shark-cowboy.jpg');
     border-radius: 10%;
     background-size: cover;
     height: 45%;
@@ -924,7 +926,7 @@ body {
   .twe-icon {
     grid-column: 4;
     grid-row: 5/8;
-    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/axolotl.jpg');
+    background-image: url('../../../public/avatars/axolotl.jpg');
     border-radius: 10%;
     background-size: cover;
     height: 45%;
@@ -935,7 +937,7 @@ body {
   .th-icon {
     grid-column: 5;
     grid-row: 5/8;
-    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/non-magikarp-funny-fish.jpg');
+    background-image: url('../../../public/avatars/non-magikarp-funny-fish.jpg');
     border-radius: 10%;
     background-size: cover;
     height: 45%;
@@ -946,7 +948,7 @@ body {
   .fo-icon {
     grid-column: 3;
     grid-row: 5/8;
-    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/fishing-diver.jpg');
+    background-image: url('../../../public/avatars/fishing-diver.jpg');
     border-radius: 10%;
     background-size: cover;
     height: 45%;
@@ -957,7 +959,7 @@ body {
   .fi-icon {
     grid-column: 2;
     grid-row: 5/8;
-    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/penguin.jpg');
+    background-image: url('../../../public/avatars/penguin.jpg');
     border-radius: 10%;
     background-size: cover;
     height: 45%;
@@ -967,7 +969,7 @@ body {
   .si-icon {
     grid-column: 1;
     grid-row: 7/10;
-    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/hench-bear.jpg');
+    background-image: url('../../../public/avatars/hench-bear.jpg');
     border-radius: 10%;
     background-size: cover;
     height: 45%;
@@ -978,7 +980,7 @@ body {
   .se-icon {
     grid-column: 4;
     grid-row: 7/10;
-    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/catfish.jpg');
+    background-image: url('../../../public/avatars/catfish.jpg');
     border-radius: 10%;
     background-size: cover;
     height: 45%;
@@ -989,7 +991,7 @@ body {
   .ei-icon {
     grid-column: 5;
     grid-row: 7/10;
-    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/fishing-penguin.jpg');
+    background-image: url('../../../public/avatars/fishing-penguin.jpg');
     border-radius: 10%;
     background-size: cover;
     height: 45%;
@@ -1011,7 +1013,7 @@ body {
   .tw-icon {
     grid-column: 2;
     grid-row: 7/10;
-    background-image: url('file:///Users/abigailminett/Makers/acebook/acebook-mern-template/frontend/public/avatars/chef-astronaut.jpg');
+    background-image: url("../../../public/avatars/chef-astronaut.jpg");
     border-radius: 10%;
     background-size: cover;
     height: 45%;
