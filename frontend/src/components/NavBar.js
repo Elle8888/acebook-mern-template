@@ -1,15 +1,26 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate, Link, useMatch, useResolvedPath } from 'react-router-dom'
 import Logo_resized from './Logo_resized.png'
+import './navbar.css'
 
 export default function Navbar() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const navigate = useNavigate()
   const token = localStorage.getItem('token')
+
+  useEffect(() => {
+    if (token) {
+      setIsLoggedIn(true)
+    } else {
+      setIsLoggedIn(false)
+    }
+  }, [token])
 
   const handleLogout = () => {
     if (token) {
       localStorage.removeItem('token')
       localStorage.removeItem('currentUser')
+      setIsLoggedIn(false)
     }
     navigate('/login')
   }
@@ -27,18 +38,38 @@ export default function Navbar() {
         </div>
       </a>
       <ul>
-        <CustomLink id="posts-link-nav" to="/posts">
-          Post
-        </CustomLink>
-        <CustomLink id="login-link-nav" to="/login">
-          Login
-        </CustomLink>
-        <CustomLink id="signup-link-nav" to="/signup">
-          Signup
-        </CustomLink>
-        <button id="logout-btn-nav" onClick={handleLogout}>
-          Logout
-        </button>
+        {isLoggedIn ? (
+          <CustomLink id="posts-link-nav" to="/posts">
+            Post
+          </CustomLink>
+        ) : null}
+        {!isLoggedIn ? (
+          <CustomLink id="login-link-nav" to="/login">
+            Login
+          </CustomLink>
+        ) : null}
+        {!isLoggedIn ? (
+          <CustomLink id="signup-link-nav" to="/signup">
+            Signup
+          </CustomLink>
+        ) : null}
+        {isLoggedIn ? (
+          <button
+            id="logout-btn-nav"
+            // style={{
+            //   backgroundColor: '#4d4dff',
+            //   color: 'white',
+            //   padding: 0,
+            //   border: 'none',
+            //   fontSize: '1rem',
+            //   fontFamily: 'Oswald, sans-serif',
+            // }}
+            className="logout-btn"
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
+        ) : null}
         {/* <CustomLink id="logout-link-nav"  to="/logout">
           Logout
         </CustomLink> */}
