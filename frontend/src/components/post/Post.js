@@ -156,30 +156,32 @@ const editArea =
               <p className='post-date'>{props.post.date}</p>
               </div>
             <div className="post-content">
-              
-              <div className='below-post-text'>
-                {props.post.author === props.current_user && <button onClick={deleteComment}>delete</button>}
-              <button onClick={commentsToggler} data-cy="toggle-btn" className= "toggle-comment-box" id='submit' role='submit-button'>
-              <img className= "comments-toggler" src="https://simg.nicepng.com/png/small/119-1196219_ic-comment-comments-comments-icon-transparent.png" alt="Comments"></img>
-              </button>
-              <div className='likes-container'>
-                <LikeButton post={props.post}  />
-              </div>
-              </div>
-              <div className="comment">
-                {toggleComments && commentDataDisplay}
-              </div>
-              
-              {toggleCommentBox && (<div className='add-comment'>
+              {editArea}
+             
+
+            </div>
+            <div className="comment">
+            {toggleCommentBox && (<div className='add-comment'>
             <textarea className='add-comment-textbox' onChange={handleInput} value={comment}></textarea>
             <button onClick={updateCommentsArray}>post</button>
              </div>)}
-              {editArea}
-              {editButton}
-              <div>
+                {toggleComments && commentDataDisplay}
+              </div>
+              <div className='under-post'>
+              <div className='below-post-text'>
+              <button onClick={commentsToggler} data-cy="toggle-btn" className= "toggle-comment-box" id='submit' role='submit-button'>
+              <img className= "comments-toggler" src="https://simg.nicepng.com/png/small/119-1196219_ic-comment-comments-comments-icon-transparent.png" alt="Comments"></img>
+              </button>
+             
+              <div className='likes-container'>
+                <LikeButton post={props.post}  />
+              </div>
+
               <button className="add-comment-button" onClick={commentBoxToggler}>Add Comment</button>
               </div>
-            </div>
+              {props.post.author === props.current_user && <button onClick={deleteComment}>delete</button>}
+              {editButton}
+              </div>
             </div>
             </div>
             </div>
