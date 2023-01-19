@@ -15,7 +15,7 @@ const LogInForm = ({ navigate }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username: username /*, email: email*/, password: password })
+      body: JSON.stringify({ username: username, password: password })
     })
 
     if (response.status !== 201) {
@@ -35,14 +35,11 @@ const LogInForm = ({ navigate }) => {
     }
   }
 
-  // const handleEmailChange = (event) => {
-  //   setEmail(event.target.value)
-  // }
-
   const handlePasswordChange = (event) => {
     setPassword(event.target.value)
     setPasswordError('')
   }
+
   const handleUsernameChange = (event) => {
     setUsername(event.target.value)
     setUserNameError('')
@@ -51,7 +48,6 @@ const LogInForm = ({ navigate }) => {
   return (
     <div>
       <form onSubmit={handleSubmit} className="main-forms-container">
-
         <div className="box-form">
           <div className="left">
             <div className="overlay">
