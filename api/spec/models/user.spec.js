@@ -10,20 +10,35 @@ describe("User model", () => {
     });
   });
 
+  beforeEach(async () => {
+    await User.deleteMany({})
+  })
+
+  it("has a username", () => {
+    const user = new User({
+      username: "sharkira",
+      email: "sharkira@fish.com",
+      password: "12345678Ab*",
+    });
+    expect(user.email).toEqual("sharkira@fish.com");
+  });
+
   it("has an email address", () => {
     const user = new User({
-      email: "someone@example.com",
-      password: "password",
+      username: "sharkira",
+      email: "sharkira@fish.com",
+      password: "12345678Ab*",
     });
-    expect(user.email).toEqual("someone@example.com");
+    expect(user.email).toEqual("sharkira@fish.com");
   });
 
   it("has a password", () => {
     const user = new User({
-      email: "someone@example.com",
-      password: "password",
+      username: "sharkira",
+      email: "sharkira@fish.com",
+      password: "12345678Ab*",
     });
-    expect(user.password).toEqual("password");
+    expect(user.password).toEqual("12345678Ab*");
   });
 
   it("can list all users", (done) => {
@@ -36,8 +51,9 @@ describe("User model", () => {
 
   it("can save a user", (done) => {
     const user = new User({
-      email: "someone@example.com",
-      password: "password",
+      username: "sharkira",
+      email: "sharkira@fish.com",
+      password: "12345678Ab*",
     });
 
     user.save((err) => {
@@ -47,8 +63,9 @@ describe("User model", () => {
         expect(err).toBeNull();
 
         expect(users[0]).toMatchObject({
-          email: "someone@example.com",
-          password: "password",
+          username: "sharkira",
+          email: "sharkira@fish.com",
+          password: "12345678Ab*",
         });
         done();
       });
