@@ -78,7 +78,7 @@ console.log("FISH", selectedFish)
             {/* </div> */}
             <div className='whole-profile'>
               {displayProfile}
-              <CreatePost current_user={currentUser} token={token} /> 
+              <CreatePost current_user={currentUser} token={token} setPosts={setPosts}/> 
              </div> 
           </div>
         </>
