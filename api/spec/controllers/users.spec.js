@@ -120,39 +120,73 @@ describe('/users', () => {
     })
   })
 
-  // describe('POST, when Email is already in use', () => {
-  //   let response = await request(app)
-  //   .post('/users')
-  //   .send({
-  //     username: 'sharkira',
-  //     email: 'sharkira@email.com',
-  //     password: '12345678Ab*',
-  //   });
-  // expect(response.statusCode).toBe(201);
+  describe('Post, when Email is already in use', () => {
+    test('the response code is 201', async () => {
+      let response = await request(app)
+       .post('/users')
+       .send({
+        username: 'sharkira',
+        email: 'sharkira@email.com',
+        password: '12345678Ab*',
+      });
+      expect(response.statusCode).toBe(201);
 
-  // // Make a second request with the same email address
-  // response = await request(app)
-  //   .post('/users')
-  //   .send({
-  //   username: 'sharkira1',
-  //   email: 'sharkira@email.com',
-  //   password: 'new12345678Ab*',
-  // });
+      new_response = await request(app)
+      .post('/users')
+      .send({
+      username: 'sharkira1',
+      email: 'sharkira@email.com',
+      password: 'new12345678Ab*',
+      });
+      expect(new_response.statusCode).toBe(400);
+      expect(new_response.body.message).toEqual('Email already in use');
+    })
+  })
 
-  // // Expect the status code to be 400
-  // expect(response.statusCode).toBe(400);
-  // // Expect the response message to be 'Email already in use'
-  // expect(response.body.message).toEqual('Email already in use');
-  //   })
+  describe('POST, when password does not meet the requirements', () => {
+    test('response code is 400', async () => {
+      let response = await request(app)
+        .post('/users')
+        .send({
+          username: 'sharkira',
+          email: 'sharkira@email.com',
+          password: '12345678',
+        })
+      expect(response.statusCode).toBe(400)
+      expect(response.body.message).toEqual('Password does not meet the requirements')
+    })
 
-  //   test('does not create a user', async () => {
-  //     await request(app).post('/users')  .send({
-  //       username: 'sharkira',
-  //       email: 'sharkira',
-  //       password: '12345678Ab*',
-  //     })
-  //     let users = await User.find()
-  //     expect(users.length).toEqual(0)
-  //   })
-  // })
+    test('does not create a user', async () => {
+      await request(app).post('/users')    .send({
+        username: 'sharkira',
+        email: 'sharkira@email.com',
+        password: '12345678',
+      })
+      let users = await User.find()
+      expect(users.length).toEqual(0)
+    })
+  })
+
+  describe('Post, when Username is already in use', () => {
+    test('the response code is 201', async () => {
+      let response = await request(app)
+       .post('/users')
+       .send({
+        username: 'sharkira',
+        email: 'sharkira@email.com',
+        password: '12345678Ab*',
+      });
+      expect(response.statusCode).toBe(201);
+
+      new_response = await request(app)
+      .post('/users')
+      .send({
+      username: 'sharkira',
+      email: 'sharkira1@email.com',
+      password: 'new12345678Ab*',
+      });
+      expect(new_response.statusCode).toBe(400);
+      expect(new_response.body.message).toEqual('Username already in use');
+    })
+  })
 })
