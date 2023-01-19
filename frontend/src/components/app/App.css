@@ -329,11 +329,9 @@ body {
   grid-template-columns: 120px 120px 120px;
   align-items: start;
   justify-content: space-between;
-  padding-top: 10px;
-  margin-left: 30px;
-  margin-right: 30px;
   padding-bottom: 50px;
   padding-top: 20px;
+  text-align: center;
 }
 .post-box {
   width: 90%;
@@ -353,7 +351,7 @@ body {
   gap: 20%;
 }
 .below-post-text {
-  width: 90%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -492,13 +490,15 @@ body {
 
 .comment {
   margin-top: 10px;
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-self: center;
-  justify-self: center;
-  width: 70%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-self: center;
+    justify-self: center;
+    width: 50%;
+    text-align: center;
+    margin-left: 25%;
 }
 
 .comment-box {
@@ -523,9 +523,10 @@ body {
     gap: 20%
   }
   .below-post-text {
-    width: 90%;
+    width: 100%;
     display: flex;
     align-items: center;
+    align-self: center;
     justify-content: space-between;
   }
   .add-comment {
@@ -1011,4 +1012,5 @@ body {
  
   .under-post {
     padding-bottom: -20px;
+   text-align: center;
   }
