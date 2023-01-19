@@ -6,8 +6,9 @@ const Comment = ({comment, postId}) => {
     return (
     <div class="comment-box">
         <p>{comment.author}</p>
-        <p>{comment.text}</p>
         <p>{comment.date}</p>
+        <p>{comment.text}</p>
+       
     </div>
         )
 }
