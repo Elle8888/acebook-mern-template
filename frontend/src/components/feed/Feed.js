@@ -10,6 +10,8 @@ const Feed = ({ navigate }) => {
 
   const [selectedFish, setSelectedFish] = useState('')
   const [fishSelectorisVisible, setFishSelectorIsVisible] = useState(false)
+  const [pic, setPic] = useState()
+  let currentUserID = ''
 
 console.log("FISH", selectedFish)
 
@@ -22,38 +24,46 @@ console.log("FISH", selectedFish)
       })
         .then(response => response.json())
         .then(async data => {
-          console.log('THIS IS DATA FROM FETCH IN FEED', data)
           window.localStorage.setItem("token", data.token)
           token = data.token;
-          console.log('TOKEN UPDATED:', data.token)
           setPosts(data.posts);
         })
     }
   }, [])
 
-  console.log('POSTS RENDERED FROM FEED', posts)
+  const getUser = async(req) => {
+    console.log("SEARCHING:" , `/users/profile/${currentUser}` )
+    fetch(`/users/profile/${currentUser}`, {
+          })
+            .then(response => response.json())
+            .then(async data => {
+              currentUserID = data[0]._id
+              console.log("USER FOUND: ", data)
+              console.log("PICTURE: ", data[0].picture)
+              console.log("USER ID: ", currentUserID)
+              setPic(data[0].picture)
+              console.log("PROFILE PIC:", pic)
+
+            })
+  }
+
+  getUser();
+
 
   const openFishSelector = () => {
     setFishSelectorIsVisible((prev) => !prev)
     console.log(fishSelectorisVisible)
+    getUser()
   }
 
-
-  const logout = () => {
-    window.localStorage.removeItem("token")
-    window.localStorage.removeItem("currentUser")
-    navigate('/login')
-  }
   
   const displayProfile = (
     <div className="wrapper profile-wrapper">
           <div className="profile-white-box">
 
             <br></br> 
-          <div onClick={openFishSelector} className={selectedFish ? `${selectedFish} fish-picture` : "profile-picture"}>
+          <div onClick={openFishSelector} className={`${pic}-icon fish-picture`}>
           </div>
-          {/* <br></br>
-          <br></br> */}
       
         <div className="username-box">
               <h2>{currentUser}</h2>
@@ -67,7 +77,7 @@ console.log("FISH", selectedFish)
           <br></br>
 
           <div className='whole-page'>
-            {fishSelectorisVisible && <Icons setSelectedFish={setSelectedFish} openFishSelector={openFishSelector}/>}
+            {fishSelectorisVisible && <Icons setSelectedFish={setSelectedFish} openFishSelector={openFishSelector} currentUserID={currentUserID}/>}
             {/* <div id='feed' role="feed"> */}
               <div id='posts' className='posts' data-cy="post">
               {posts?.slice(0).reverse().map(
