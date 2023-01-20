@@ -32,10 +32,8 @@ const CreatePost = (props) => {
       console.log("oop: " + response.status)
       let data = await response.json()
       window.localStorage.setItem("token", data.token)
-      //This refreshes the page, there may be a nicer way of doing it 
-      window.location.reload(false);
+      props.setPosts(data.posts)
     }
-    // there should be a way to move this to be called seperately inside onCLick
     openNewPostField()
   }
 

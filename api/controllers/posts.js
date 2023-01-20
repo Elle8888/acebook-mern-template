@@ -21,7 +21,8 @@ const PostsController = {
       }
 
       const token = await TokenGenerator.jsonwebtoken(req.user_id)
-      res.status(201).json({ message: 'OK', token: token });
+      const allPosts = await Post.find()
+      res.status(201).json({posts: allPosts, token: token});
     });
   },
 
