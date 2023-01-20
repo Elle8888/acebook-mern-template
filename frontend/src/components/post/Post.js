@@ -21,21 +21,21 @@ const Post = (props) => {
   }
 
 
-    useEffect(() => {
-      //Getting the comments for each post
-    if(token) {
-      fetch(`/posts/comments/${props.post._id}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        },
-      })
-        .then(response => response.json())
-        .then(async data => {
-          setAllComments(data);
+  //   useEffect(() => {
+  //     //Getting the comments for each post
+  //   if(token) {
+  //     fetch(`/posts/comments/${props.post._id}`, {
+  //       headers: {
+  //         'Authorization': `Bearer ${token}`
+  //       },
+  //     })
+  //       .then(response => response.json())
+  //       .then(async data => {
+  //         setAllComments(data);
 
-        })
-    }
-  }, [])
+  //       })
+  //   }
+  // }, [])
 
   const commentsToggler = () => {
     setToggleComments((toggleComments) => !toggleComments)
@@ -118,7 +118,29 @@ const editArea =
     <p>{postMessage}</p>
   );
 
+  const deleteComment = async() => {
+    let response = await fetch('posts/delete', {
+      method: 'post',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({_id: props.post._id})
+    })
+
+      if (response.status !== 200) {
+        console.log("post failed, Error status:" + response.status)
+      } else {
+        console.log("oop: " + response.status)
+        let data = await response.json()
+        console.log('THIS IS RETURNED DATA', data)
+        props.setPosts(data)
+      }
+  }
+
+
   const commentDataDisplay = allComments?.map((commentObj) => < Comment comment={commentObj} key={commentObj._id} />)
+  // const commentDataDi = allComments?.map((commentObj) => < Comment comment={commentObj} key={commentObj._id} />)
 
   return (
     // <div className="box-forming">
@@ -136,6 +158,7 @@ const editArea =
             <div className="post-content">
               
               <div className='below-post-text'>
+                {props.post.author === props.current_user && <button onClick={deleteComment}>delete</button>}
               <button onClick={commentsToggler} data-cy="toggle-btn" className= "toggle-comment-box" id='submit' role='submit-button'>
               <img className= "comments-toggler" src="https://simg.nicepng.com/png/small/119-1196219_ic-comment-comments-comments-icon-transparent.png" alt="Comments"></img>
               </button>

@@ -9,8 +9,8 @@ const CreatePost = (props) => {
     setNewPostMessage(event.target.value)
   }
 
-  const openNewPostField = () => {
-    setToggleNewPost((toggleNewPost) => !toggleNewPost)
+  function openNewPostField() {
+    setToggleNewPost((toggleNewPost) => !toggleNewPost);
   }
 
   const sendPost = async (event) => {
@@ -36,13 +36,15 @@ const CreatePost = (props) => {
       //This refreshes the page, there may be a nicer way of doing it 
       window.location.reload(false);
     }
+    // there should be a way to move this to be called seperately inside onCLick
+    openNewPostField()
   }
 
   const newPostField =
     (<div className="on-mind">
       <h3>New post</h3>
-      <input placeholder="What's on your mind?" id="message" type='text' value={newPostMessage} onChange={handleNewPostMessageChange} />
-      <button id="submit-post" onClick={sendPost}> Post</button>
+      <textarea placeholder="What's on your mind?" id="message" type='text' value={newPostMessage} onChange={handleNewPostMessageChange}></textarea>
+      <button className='create-post-btn' id="submit-post" onClick={sendPost}> Post</button>
     </div>)
     
   return  ( 
