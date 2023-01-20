@@ -21,21 +21,21 @@ const Post = (props) => {
   }
 
 
-  //   useEffect(() => {
-  //     //Getting the comments for each post
-  //   if(token) {
-  //     fetch(`/posts/comments/${props.post._id}`, {
-  //       headers: {
-  //         'Authorization': `Bearer ${token}`
-  //       },
-  //     })
-  //       .then(response => response.json())
-  //       .then(async data => {
-  //         setAllComments(data);
+    useEffect(() => {
+      //Getting the comments for each post
+    if(token) {
+      fetch(`/posts/comments/${props.post._id}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+      })
+        .then(response => response.json())
+        .then(async data => {
+          setAllComments(data);
 
-  //       })
-  //   }
-  // }, [])
+        })
+    }
+  }, [])
 
   const commentsToggler = () => {
     setToggleComments((toggleComments) => !toggleComments)
