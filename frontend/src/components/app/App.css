@@ -247,7 +247,8 @@ body {
 }
 
 .nav {
-  background-color: #4d4dff;
+  /* background-color: #4d4dff; */
+  background-color: #054267;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -697,9 +698,9 @@ body {
     display: flex;
     justify-content: space-around;
 
-  to {
+  /* to {
     transform: rotate(0deg);
-  }
+  } */
 }
 
 /* animation on homescreen */
