@@ -46,11 +46,13 @@ const CreatePost = (props) => {
     </div>)
     
   return  ( 
-    <div className="create-post">
-    <button className="create-post" id="create-post" onClick={openNewPostField}>
-      Create post
-    </button>
-    <div>{toggleNewPost && newPostField }</div>
+    <div className={`${toggleNewPost ? 'create-post-page' : 'create-post'}`}>
+    <div className={`${toggleNewPost && 'create-post-popup'}`}>
+    <button id="create-post" onClick={openNewPostField} className={toggleNewPost ? 'close-post-btn' : 'create-post-btn'}>
+       {toggleNewPost ? 'x' : 'Create post'}
+        </button>
+        {toggleNewPost && newPostField }
+      </div>
   </div>
 
   )
